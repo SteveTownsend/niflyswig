@@ -1,4 +1,9 @@
 // File : niflycpp.i
+//
+// niflysharp
+// C# NIF library for the Gamebryo/NetImmerse File Format
+// See the included GPLv3 LICENSE file
+//
 %module niflycpp
 
 %{

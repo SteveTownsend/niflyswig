@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageId>niflysharp</PackageId>
+    <Authors>https://github.com/ousnius, https://github.com/SteveTownsend</Authors>
+    <Company />
+    <Product>niflysharp</Product>
+    <Description>C# NIF processing library based on https://github.com/ousnius/nifly, using SWIG to generate C# API bound to the C++ original</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/SteveTownsend/niflyswig</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SteveTownsend/niflyswig.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Bethesda NIF C#</PackageTags>
+    <PackageReleaseNotes>Initial MVP Release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +30,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -12,29 +12,52 @@ namespace niflytest
         private static string dataFileLocation;
         private static TestContext myContext;
 
-        private bool FilesAreEqual(string f1, string f2)
+        private enum FileCheck {
+            Exact = 0,
+            MatchTruncated,
+            NoMatch
+        };
+
+        private FileCheck CompareFiles(string original, string updated)
         {
             // get file length and make sure lengths are identical
-            long length = new FileInfo(f1).Length;
-            if (length != new FileInfo(f2).Length)
-                return false;
+            long length = new FileInfo(original).Length;
+            long newLength = new FileInfo(updated).Length;
+            if (length < newLength)
+                return FileCheck.NoMatch;
+            bool sameLength = length == newLength;
 
             // open both for reading
-            using (FileStream stream1 = File.OpenRead(f1))
-            using (FileStream stream2 = File.OpenRead(f2))
+            using (FileStream stream1 = File.OpenRead(original))
+            using (FileStream stream2 = File.OpenRead(updated))
             {
-                // compare content for equality
-                int b1, b2;
-                while (length-- > 0)
+                const int bufferSize = 2048;
+                byte[] buffer1 = new byte[bufferSize]; //buffer size
+                byte[] buffer2 = new byte[bufferSize];
+                while (newLength > 0)
                 {
-                    b1 = stream1.ReadByte();
-                    b2 = stream2.ReadByte();
-                    if (b1 != b2)
-                        return false;
-                }
+                    int count1 = stream1.Read(buffer1, 0, bufferSize);
+                    int count2 = stream2.Read(buffer2, 0, bufferSize);
+
+                    if (count1 != count2)
+                        return FileCheck.MatchTruncated;
+
+                    if (count1 == 0)
+                        return FileCheck.Exact;
+
+                    int iterations = (int)Math.Ceiling((double)count1 / sizeof(Int64));
+                    for (int i = 0; i < iterations; i++)
+                    {
+                        if (BitConverter.ToInt64(buffer1, i * sizeof(Int64)) != BitConverter.ToInt64(buffer2, i * sizeof(Int64)))
+                        {
+                            return FileCheck.NoMatch;
+                        }
+                    }
+                    newLength -= count2;
+                }                // compare content for equality
             }
 
-            return true;
+            return sameLength ? FileCheck.Exact : FileCheck.MatchTruncated;
         }
 
         [AssemblyInitialize]
@@ -89,22 +112,31 @@ namespace niflytest
 
             int failed = 0;
             int matched = 0;
+            int newIsSubstring = 0;
             foreach (string fileName in Directory.EnumerateFiles(dataFileLocation, "*.nif"))
             {
+                // Files that differ appear to have been cleaned up by the round trip. Spot checking a couple
+                // in Nifskope shows no information loss.
                 var nifFile = new nifly.NifFile(true);
                 int loadResult = nifFile.Load(fileName, loadOptions);
                 int saveResult = nifFile.Save(fileName + ".new", saveOptions);
-                if (FilesAreEqual(fileName, fileName + ".new"))
+                FileCheck match = CompareFiles(fileName, fileName + ".new");
+                switch (match)
                 {
-                    myContext.WriteLine(String.Format("Roundtrip mismatch {0}", fileName));
-                    ++failed;
-                }
-                else
-                {
-                    ++matched;
+                    case FileCheck.Exact:
+                        ++matched;
+                        break;
+                    case FileCheck.MatchTruncated:
+                        myContext.WriteLine(String.Format("Truncate {0}", fileName));
+                        ++newIsSubstring;
+                        break;
+                    case FileCheck.NoMatch:
+                        myContext.WriteLine(String.Format("Mismatch {0}", fileName));
+                        ++failed;
+                        break;
                 }
             }
-            myContext.WriteLine(String.Format("NIF Files {0} matched, {1} failed", failed, matched));
+            myContext.WriteLine(String.Format("NIF Files {0} failed, {1} truncated, {2} exact", failed, newIsSubstring, matched));
         }
 
     }
