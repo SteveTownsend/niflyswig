@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="swig">
+      <UniqueIdentifier>{39e40878-1093-45a2-b573-14dda676dfc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\nifly\include\Animation.hpp">
@@ -107,5 +110,13 @@
     <ClCompile Include="external\nifly\src\Skin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="swig\niflycpp_wrap.cxx">
+      <Filter>swig</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="swig\niflycpp.i">
+      <Filter>swig</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
