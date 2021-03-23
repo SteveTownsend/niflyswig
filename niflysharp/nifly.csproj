@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -17,6 +17,13 @@
     <PackageReleaseNotes>Initial MVP Release</PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\niflycpp.dll" Pack="true" PackagePath="lib\net5.0">
+      <Pack>True</Pack>
+	  <PackageCopyToOutput>true</PackageCopyToOutput>
+	</None>
+  </ItemGroup>
+	
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
