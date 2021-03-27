@@ -798,6 +798,420 @@ SWIGINTERN bool std_vector_Sl_float_Sg__Remove(std::vector< float > *self,float 
         }
         return false;
       }
+SWIGINTERN std::vector< nifly::NiStringExtraData * > *new_std_vector_Sl_nifly_NiStringExtraData_Sm__Sg___SWIG_2(int capacity){
+        std::vector< nifly::NiStringExtraData * >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< nifly::NiStringExtraData * >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN nifly::NiStringExtraData *std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__getitemcopy(std::vector< nifly::NiStringExtraData * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN std::vector< nifly::NiStringExtraData * >::value_type const &std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__getitem(std::vector< nifly::NiStringExtraData * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__setitem(std::vector< nifly::NiStringExtraData * > *self,int index,nifly::NiStringExtraData *const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__AddRange(std::vector< nifly::NiStringExtraData * > *self,std::vector< nifly::NiStringExtraData * > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< nifly::NiStringExtraData * > *std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__GetRange(std::vector< nifly::NiStringExtraData * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< nifly::NiStringExtraData * >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Insert(std::vector< nifly::NiStringExtraData * > *self,int index,nifly::NiStringExtraData *const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__InsertRange(std::vector< nifly::NiStringExtraData * > *self,int index,std::vector< nifly::NiStringExtraData * > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__RemoveAt(std::vector< nifly::NiStringExtraData * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__RemoveRange(std::vector< nifly::NiStringExtraData * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< nifly::NiStringExtraData * > *std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Repeat(nifly::NiStringExtraData *const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< nifly::NiStringExtraData * >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Reverse__SWIG_0(std::vector< nifly::NiStringExtraData * > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Reverse__SWIG_1(std::vector< nifly::NiStringExtraData * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__SetRange(std::vector< nifly::NiStringExtraData * > *self,int index,std::vector< nifly::NiStringExtraData * > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
+SWIGINTERN bool std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Contains(std::vector< nifly::NiStringExtraData * > *self,nifly::NiStringExtraData *const &value){
+        return std::find(self->begin(), self->end(), value) != self->end();
+      }
+SWIGINTERN int std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__IndexOf(std::vector< nifly::NiStringExtraData * > *self,nifly::NiStringExtraData *const &value){
+        int index = -1;
+        std::vector< nifly::NiStringExtraData * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end())
+          index = (int)(it - self->begin());
+        return index;
+      }
+SWIGINTERN int std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__LastIndexOf(std::vector< nifly::NiStringExtraData * > *self,nifly::NiStringExtraData *const &value){
+        int index = -1;
+        std::vector< nifly::NiStringExtraData * >::reverse_iterator rit = std::find(self->rbegin(), self->rend(), value);
+        if (rit != self->rend())
+          index = (int)(self->rend() - 1 - rit);
+        return index;
+      }
+SWIGINTERN bool std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Remove(std::vector< nifly::NiStringExtraData * > *self,nifly::NiStringExtraData *const &value){
+        std::vector< nifly::NiStringExtraData * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end()) {
+          self->erase(it);
+          return true;
+        }
+        return false;
+      }
+SWIGINTERN std::vector< StringRef * > *new_std_vector_Sl_StringRef_Sm__Sg___SWIG_2(int capacity){
+        std::vector< nifly::StringRef * >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< nifly::StringRef * >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN nifly::StringRef *std_vector_Sl_StringRef_Sm__Sg__getitemcopy(std::vector< StringRef * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN std::vector< StringRef * >::value_type const &std_vector_Sl_StringRef_Sm__Sg__getitem(std::vector< StringRef * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__setitem(std::vector< StringRef * > *self,int index,nifly::StringRef *const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__AddRange(std::vector< StringRef * > *self,std::vector< nifly::StringRef * > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< nifly::StringRef * > *std_vector_Sl_StringRef_Sm__Sg__GetRange(std::vector< StringRef * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< nifly::StringRef * >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__Insert(std::vector< StringRef * > *self,int index,nifly::StringRef *const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__InsertRange(std::vector< StringRef * > *self,int index,std::vector< nifly::StringRef * > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__RemoveAt(std::vector< StringRef * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__RemoveRange(std::vector< StringRef * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< nifly::StringRef * > *std_vector_Sl_StringRef_Sm__Sg__Repeat(nifly::StringRef *const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< nifly::StringRef * >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__Reverse__SWIG_0(std::vector< StringRef * > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__Reverse__SWIG_1(std::vector< StringRef * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_StringRef_Sm__Sg__SetRange(std::vector< StringRef * > *self,int index,std::vector< nifly::StringRef * > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
+SWIGINTERN bool std_vector_Sl_StringRef_Sm__Sg__Contains(std::vector< StringRef * > *self,nifly::StringRef *const &value){
+        return std::find(self->begin(), self->end(), value) != self->end();
+      }
+SWIGINTERN int std_vector_Sl_StringRef_Sm__Sg__IndexOf(std::vector< StringRef * > *self,nifly::StringRef *const &value){
+        int index = -1;
+        std::vector< nifly::StringRef * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end())
+          index = (int)(it - self->begin());
+        return index;
+      }
+SWIGINTERN int std_vector_Sl_StringRef_Sm__Sg__LastIndexOf(std::vector< StringRef * > *self,nifly::StringRef *const &value){
+        int index = -1;
+        std::vector< nifly::StringRef * >::reverse_iterator rit = std::find(self->rbegin(), self->rend(), value);
+        if (rit != self->rend())
+          index = (int)(self->rend() - 1 - rit);
+        return index;
+      }
+SWIGINTERN bool std_vector_Sl_StringRef_Sm__Sg__Remove(std::vector< StringRef * > *self,nifly::StringRef *const &value){
+        std::vector< nifly::StringRef * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end()) {
+          self->erase(it);
+          return true;
+        }
+        return false;
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiAVObject > > *new_std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg___SWIG_2(int capacity){
+        std::vector< nifly::BlockRef< nifly::NiAVObject > >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< nifly::BlockRef< nifly::NiAVObject > >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN nifly::BlockRef< nifly::NiAVObject > std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__getitemcopy(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiAVObject > >::value_type const &std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__getitem(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__setitem(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,nifly::BlockRef< nifly::NiAVObject > const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__AddRange(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,std::vector< nifly::BlockRef< nifly::NiAVObject > > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiAVObject > > *std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__GetRange(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< nifly::BlockRef< nifly::NiAVObject > >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Insert(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,nifly::BlockRef< nifly::NiAVObject > const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__InsertRange(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,std::vector< nifly::BlockRef< nifly::NiAVObject > > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__RemoveAt(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__RemoveRange(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiAVObject > > *std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Repeat(nifly::BlockRef< nifly::NiAVObject > const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< nifly::BlockRef< nifly::NiAVObject > >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Reverse__SWIG_0(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Reverse__SWIG_1(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__SetRange(std::vector< nifly::BlockRef< nifly::NiAVObject > > *self,int index,std::vector< nifly::BlockRef< nifly::NiAVObject > > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiProperty > > *new_std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg___SWIG_2(int capacity){
+        std::vector< nifly::BlockRef< nifly::NiProperty > >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< nifly::BlockRef< nifly::NiProperty > >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN nifly::BlockRef< nifly::NiProperty > std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__getitemcopy(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiProperty > >::value_type const &std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__getitem(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__setitem(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,nifly::BlockRef< nifly::NiProperty > const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__AddRange(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,std::vector< nifly::BlockRef< nifly::NiProperty > > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiProperty > > *std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__GetRange(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< nifly::BlockRef< nifly::NiProperty > >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Insert(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,nifly::BlockRef< nifly::NiProperty > const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__InsertRange(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,std::vector< nifly::BlockRef< nifly::NiProperty > > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__RemoveAt(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__RemoveRange(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< nifly::BlockRef< nifly::NiProperty > > *std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Repeat(nifly::BlockRef< nifly::NiProperty > const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< nifly::BlockRef< nifly::NiProperty > >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Reverse__SWIG_0(std::vector< nifly::BlockRef< nifly::NiProperty > > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Reverse__SWIG_1(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__SetRange(std::vector< nifly::BlockRef< nifly::NiProperty > > *self,int index,std::vector< nifly::BlockRef< nifly::NiProperty > > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
 
 #ifdef __cplusplus
 extern "C" {
@@ -10734,6 +11148,48 @@ SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiHeader_Put(void * jarg1, void * jarg2
 }
 
 
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiHeader_NiNodeBlock(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::NiHeader *arg1 = (nifly::NiHeader *) 0 ;
+  int arg2 ;
+  nifly::NiNode *result = 0 ;
+  
+  arg1 = (nifly::NiHeader *)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (nifly::NiNode *)(arg1)->SWIGTEMPLATEDISAMBIGUATOR GetBlock< nifly::NiNode >(arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiHeader_NiAVObjectBlock(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::NiHeader *arg1 = (nifly::NiHeader *) 0 ;
+  int arg2 ;
+  nifly::NiAVObject *result = 0 ;
+  
+  arg1 = (nifly::NiHeader *)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (nifly::NiAVObject *)(arg1)->SWIGTEMPLATEDISAMBIGUATOR GetBlock< nifly::NiAVObject >(arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiHeader_NiPropertyBlock(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::NiHeader *arg1 = (nifly::NiHeader *) 0 ;
+  int arg2 ;
+  nifly::NiProperty *result = 0 ;
+  
+  arg1 = (nifly::NiHeader *)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (nifly::NiProperty *)(arg1)->SWIGTEMPLATEDISAMBIGUATOR GetBlock< nifly::NiProperty >(arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_NiHeader(void * jarg1) {
   nifly::NiHeader *arg1 = (nifly::NiHeader *) 0 ;
   
@@ -10813,6 +11269,298 @@ SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_NiUnknown(void * jarg1) {
   
   arg1 = (nifly::NiUnknown *)jarg1; 
   delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_ClonableHeaderObject(void * jarg1) {
+  nifly::Clonable< nifly::NiHeader,nifly::NiObject > *arg1 = (nifly::Clonable< nifly::NiHeader,nifly::NiObject > *) 0 ;
+  
+  arg1 = (nifly::Clonable< nifly::NiHeader,nifly::NiObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_ClonableHeaderObject_Clone(void * jarg1) {
+  void * jresult ;
+  nifly::Clonable< nifly::NiHeader,nifly::NiObject > *arg1 = (nifly::Clonable< nifly::NiHeader,nifly::NiObject > *) 0 ;
+  nifly::NiHeader *result = 0 ;
+  
+  arg1 = (nifly::Clonable< nifly::NiHeader,nifly::NiObject > *)jarg1; 
+  result = (nifly::NiHeader *)((nifly::Clonable< nifly::NiHeader,nifly::NiObject > const *)arg1)->Clone();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_ClonableHeaderObject() {
+  void * jresult ;
+  nifly::Clonable< nifly::NiHeader,nifly::NiObject > *result = 0 ;
+  
+  result = (nifly::Clonable< nifly::NiHeader,nifly::NiObject > *)new nifly::Clonable< nifly::NiHeader,nifly::NiObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_StreamableNodeAVObject(void * jarg1) {
+  nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *) 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StreamableNodeAVObject_Clone(void * jarg1) {
+  void * jresult ;
+  nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *) 0 ;
+  nifly::NiNode *result = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *)jarg1; 
+  result = (nifly::NiNode *)((nifly::Streamable< nifly::NiNode,nifly::NiAVObject > const *)arg1)->Clone();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableNodeAVObject_Get(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *) 0 ;
+  nifly::NiIStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *)jarg1; 
+  arg2 = (nifly::NiIStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiIStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Get(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableNodeAVObject_Put(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *) 0 ;
+  nifly::NiOStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *)jarg1; 
+  arg2 = (nifly::NiOStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiOStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Put(*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StreamableNodeAVObject() {
+  void * jresult ;
+  nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *result = 0 ;
+  
+  result = (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *)new nifly::Streamable< nifly::NiNode,nifly::NiAVObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_ClonableShapeAVObject(void * jarg1) {
+  nifly::Clonable< NiShape,nifly::NiAVObject > *arg1 = (nifly::Clonable< NiShape,nifly::NiAVObject > *) 0 ;
+  
+  arg1 = (nifly::Clonable< NiShape,nifly::NiAVObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_ClonableShapeAVObject_Clone(void * jarg1) {
+  void * jresult ;
+  nifly::Clonable< NiShape,nifly::NiAVObject > *arg1 = (nifly::Clonable< NiShape,nifly::NiAVObject > *) 0 ;
+  NiShape *result = 0 ;
+  
+  arg1 = (nifly::Clonable< NiShape,nifly::NiAVObject > *)jarg1; 
+  result = (NiShape *)((nifly::Clonable< NiShape,nifly::NiAVObject > const *)arg1)->Clone();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_ClonableShapeAVObject() {
+  void * jresult ;
+  nifly::Clonable< NiShape,nifly::NiAVObject > *result = 0 ;
+  
+  result = (nifly::Clonable< NiShape,nifly::NiAVObject > *)new nifly::Clonable< NiShape,nifly::NiAVObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_StreamableUnknownObject(void * jarg1) {
+  nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *) 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StreamableUnknownObject_Clone(void * jarg1) {
+  void * jresult ;
+  nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *) 0 ;
+  nifly::NiUnknown *result = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *)jarg1; 
+  result = (nifly::NiUnknown *)((nifly::Streamable< nifly::NiUnknown,nifly::NiObject > const *)arg1)->Clone();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableUnknownObject_Get(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *) 0 ;
+  nifly::NiIStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *)jarg1; 
+  arg2 = (nifly::NiIStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiIStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Get(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableUnknownObject_Put(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *) 0 ;
+  nifly::NiOStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *)jarg1; 
+  arg2 = (nifly::NiOStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiOStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Put(*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StreamableUnknownObject() {
+  void * jresult ;
+  nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *result = 0 ;
+  
+  result = (nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *)new nifly::Streamable< nifly::NiUnknown,nifly::NiObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_StreamableObjectNETObject(void * jarg1) {
+  nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *) 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StreamableObjectNETObject_Clone(void * jarg1) {
+  void * jresult ;
+  nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *) 0 ;
+  nifly::NiObjectNET *result = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *)jarg1; 
+  result = (nifly::NiObjectNET *)((nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > const *)arg1)->Clone();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableObjectNETObject_Get(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *) 0 ;
+  nifly::NiIStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *)jarg1; 
+  arg2 = (nifly::NiIStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiIStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Get(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableObjectNETObject_Put(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *) 0 ;
+  nifly::NiOStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *)jarg1; 
+  arg2 = (nifly::NiOStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiOStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Put(*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StreamableObjectNETObject() {
+  void * jresult ;
+  nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *result = 0 ;
+  
+  result = (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *)new nifly::Streamable< nifly::NiObjectNET,nifly::NiObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_StreamableAVObjectObjectNET(void * jarg1) {
+  nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *) 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StreamableAVObjectObjectNET_Clone(void * jarg1) {
+  void * jresult ;
+  nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *) 0 ;
+  nifly::NiAVObject *result = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *)jarg1; 
+  result = (nifly::NiAVObject *)((nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > const *)arg1)->Clone();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableAVObjectObjectNET_Get(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *) 0 ;
+  nifly::NiIStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *)jarg1; 
+  arg2 = (nifly::NiIStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiIStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Get(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StreamableAVObjectObjectNET_Put(void * jarg1, void * jarg2) {
+  nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *) 0 ;
+  nifly::NiOStream *arg2 = 0 ;
+  
+  arg1 = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *)jarg1; 
+  arg2 = (nifly::NiOStream *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiOStream & type is null", 0);
+    return ;
+  } 
+  (arg1)->Put(*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StreamableAVObjectObjectNET() {
+  void * jresult ;
+  nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *result = 0 ;
+  
+  result = (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *)new nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET >();
+  jresult = (void *)result; 
+  return jresult;
 }
 
 
@@ -18784,6 +19532,18 @@ SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraData_GetStringRefs(void * 
     return ;
   } 
   (arg1)->GetStringRefs(*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiStringExtraData_GetStringRefList(void * jarg1) {
+  void * jresult ;
+  nifly::NiStringExtraData *arg1 = (nifly::NiStringExtraData *) 0 ;
+  std::vector< nifly::StringRef * > result;
+  
+  arg1 = (nifly::NiStringExtraData *)jarg1; 
+  result = (arg1)->GetStringRefList();
+  jresult = new std::vector< nifly::StringRef * >((const std::vector< nifly::StringRef * > &)result); 
+  return jresult;
 }
 
 
@@ -31043,6 +31803,90 @@ SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NifFile_UpdatePartitionFlags(void * jar
   arg1 = (nifly::NifFile *)jarg1; 
   arg2 = (nifly::NiShape *)jarg2; 
   (arg1)->UpdatePartitionFlags(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_StringExtraDataChildren__SWIG_0(void * jarg1, void * jarg2, unsigned int jarg3) {
+  void * jresult ;
+  nifly::NifFile *arg1 = (nifly::NifFile *) 0 ;
+  nifly::NiNode *arg2 = (nifly::NiNode *) 0 ;
+  bool arg3 ;
+  std::vector< nifly::NiStringExtraData * > result;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  arg2 = (nifly::NiNode *)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  result = (arg1)->SWIGTEMPLATEDISAMBIGUATOR GetChildren< nifly::NiStringExtraData >(arg2,arg3);
+  jresult = new std::vector< nifly::NiStringExtraData * >((const std::vector< nifly::NiStringExtraData * > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_StringExtraDataChildren__SWIG_1(void * jarg1, void * jarg2) {
+  void * jresult ;
+  nifly::NifFile *arg1 = (nifly::NifFile *) 0 ;
+  nifly::NiNode *arg2 = (nifly::NiNode *) 0 ;
+  std::vector< nifly::NiStringExtraData * > result;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  arg2 = (nifly::NiNode *)jarg2; 
+  result = (arg1)->SWIGTEMPLATEDISAMBIGUATOR GetChildren< nifly::NiStringExtraData >(arg2);
+  jresult = new std::vector< nifly::NiStringExtraData * >((const std::vector< nifly::NiStringExtraData * > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_StringExtraDataChildren__SWIG_2(void * jarg1) {
+  void * jresult ;
+  nifly::NifFile *arg1 = (nifly::NifFile *) 0 ;
+  std::vector< nifly::NiStringExtraData * > result;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  result = (arg1)->SWIGTEMPLATEDISAMBIGUATOR GetChildren< nifly::NiStringExtraData >();
+  jresult = new std::vector< nifly::NiStringExtraData * >((const std::vector< nifly::NiStringExtraData * > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_NodeChildren__SWIG_0(void * jarg1, void * jarg2, unsigned int jarg3) {
+  void * jresult ;
+  nifly::NifFile *arg1 = (nifly::NifFile *) 0 ;
+  nifly::NiNode *arg2 = (nifly::NiNode *) 0 ;
+  bool arg3 ;
+  SwigValueWrapper< std::vector< nifly::NiNode * > > result;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  arg2 = (nifly::NiNode *)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  result = (arg1)->SWIGTEMPLATEDISAMBIGUATOR GetChildren< nifly::NiNode >(arg2,arg3);
+  jresult = new std::vector< nifly::NiNode * >((const std::vector< nifly::NiNode * > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_NodeChildren__SWIG_1(void * jarg1, void * jarg2) {
+  void * jresult ;
+  nifly::NifFile *arg1 = (nifly::NifFile *) 0 ;
+  nifly::NiNode *arg2 = (nifly::NiNode *) 0 ;
+  SwigValueWrapper< std::vector< nifly::NiNode * > > result;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  arg2 = (nifly::NiNode *)jarg2; 
+  result = (arg1)->SWIGTEMPLATEDISAMBIGUATOR GetChildren< nifly::NiNode >(arg2);
+  jresult = new std::vector< nifly::NiNode * >((const std::vector< nifly::NiNode * > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_NodeChildren__SWIG_2(void * jarg1) {
+  void * jresult ;
+  nifly::NifFile *arg1 = (nifly::NifFile *) 0 ;
+  SwigValueWrapper< std::vector< nifly::NiNode * > > result;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  result = (arg1)->SWIGTEMPLATEDISAMBIGUATOR GetChildren< nifly::NiNode >();
+  jresult = new std::vector< nifly::NiNode * >((const std::vector< nifly::NiNode * > &)result); 
+  return jresult;
 }
 
 
@@ -49411,12 +50255,2036 @@ SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BSVertexData(void * jarg1) {
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Clear(void * jarg1) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Add(void * jarg1, void * jarg2) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  nifly::NiStringExtraData **arg2 = 0 ;
+  nifly::NiStringExtraData *temp2 = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  temp2 = (nifly::NiStringExtraData *)jarg2;
+  arg2 = (nifly::NiStringExtraData **)&temp2; 
+  (arg1)->push_back((nifly::NiStringExtraData *const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  std::vector< nifly::NiStringExtraData * >::size_type result;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  result = ((std::vector< nifly::NiStringExtraData * > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  std::vector< nifly::NiStringExtraData * >::size_type result;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  result = ((std::vector< nifly::NiStringExtraData * > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  std::vector< nifly::NiStringExtraData * >::size_type arg2 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (std::vector< nifly::NiStringExtraData * >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_NiStringExtraDataVector__SWIG_0() {
+  void * jresult ;
+  std::vector< nifly::NiStringExtraData * > *result = 0 ;
+  
+  result = (std::vector< nifly::NiStringExtraData * > *)new std::vector< nifly::NiStringExtraData * >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_NiStringExtraDataVector__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = 0 ;
+  std::vector< nifly::NiStringExtraData * > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::NiStringExtraData * > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< nifly::NiStringExtraData * > *)new std::vector< nifly::NiStringExtraData * >((std::vector< nifly::NiStringExtraData * > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_NiStringExtraDataVector__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< nifly::NiStringExtraData * > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< nifly::NiStringExtraData * > *)new_std_vector_Sl_nifly_NiStringExtraData_Sm__Sg___SWIG_2(arg1);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  nifly::NiStringExtraData *result = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (nifly::NiStringExtraData *)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__getitemcopy(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::NiStringExtraData * >::value_type *result = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::NiStringExtraData * >::value_type *) &std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__getitem(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  nifly::NiStringExtraData **arg3 = 0 ;
+  nifly::NiStringExtraData *temp3 = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (nifly::NiStringExtraData *)jarg3;
+  arg3 = (nifly::NiStringExtraData **)&temp3; 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__setitem(arg1,arg2,(nifly::NiStringExtraData *const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_AddRange(void * jarg1, void * jarg2) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  std::vector< nifly::NiStringExtraData * > *arg2 = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (std::vector< nifly::NiStringExtraData * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::NiStringExtraData * > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__AddRange(arg1,(std::vector< nifly::NiStringExtraData * > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< nifly::NiStringExtraData * > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< nifly::NiStringExtraData * > *)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__GetRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  nifly::NiStringExtraData **arg3 = 0 ;
+  nifly::NiStringExtraData *temp3 = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (nifly::NiStringExtraData *)jarg3;
+  arg3 = (nifly::NiStringExtraData **)&temp3; 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Insert(arg1,arg2,(nifly::NiStringExtraData *const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::NiStringExtraData * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::NiStringExtraData * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::NiStringExtraData * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__InsertRange(arg1,arg2,(std::vector< nifly::NiStringExtraData * > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__RemoveAt(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__RemoveRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::NiStringExtraData **arg1 = 0 ;
+  int arg2 ;
+  nifly::NiStringExtraData *temp1 = 0 ;
+  std::vector< nifly::NiStringExtraData * > *result = 0 ;
+  
+  temp1 = (nifly::NiStringExtraData *)jarg1;
+  arg1 = (nifly::NiStringExtraData **)&temp1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::NiStringExtraData * > *)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Repeat((nifly::NiStringExtraData *const &)*arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Reverse__SWIG_0(void * jarg1) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::NiStringExtraData * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::NiStringExtraData * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::NiStringExtraData * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__SetRange(arg1,arg2,(std::vector< nifly::NiStringExtraData * > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Contains(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  nifly::NiStringExtraData **arg2 = 0 ;
+  nifly::NiStringExtraData *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  temp2 = (nifly::NiStringExtraData *)jarg2;
+  arg2 = (nifly::NiStringExtraData **)&temp2; 
+  result = (bool)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Contains(arg1,(nifly::NiStringExtraData *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_IndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  nifly::NiStringExtraData **arg2 = 0 ;
+  nifly::NiStringExtraData *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  temp2 = (nifly::NiStringExtraData *)jarg2;
+  arg2 = (nifly::NiStringExtraData **)&temp2; 
+  result = (int)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__IndexOf(arg1,(nifly::NiStringExtraData *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_LastIndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  nifly::NiStringExtraData **arg2 = 0 ;
+  nifly::NiStringExtraData *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  temp2 = (nifly::NiStringExtraData *)jarg2;
+  arg2 = (nifly::NiStringExtraData **)&temp2; 
+  result = (int)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__LastIndexOf(arg1,(nifly::NiStringExtraData *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_nifly_NiStringExtraDataVector_Remove(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  nifly::NiStringExtraData **arg2 = 0 ;
+  nifly::NiStringExtraData *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  temp2 = (nifly::NiStringExtraData *)jarg2;
+  arg2 = (nifly::NiStringExtraData **)&temp2; 
+  result = (bool)std_vector_Sl_nifly_NiStringExtraData_Sm__Sg__Remove(arg1,(nifly::NiStringExtraData *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_NiStringExtraDataVector(void * jarg1) {
+  std::vector< nifly::NiStringExtraData * > *arg1 = (std::vector< nifly::NiStringExtraData * > *) 0 ;
+  
+  arg1 = (std::vector< nifly::NiStringExtraData * > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_Clear(void * jarg1) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_Add(void * jarg1, void * jarg2) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  nifly::StringRef **arg2 = 0 ;
+  nifly::StringRef *temp2 = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  temp2 = (nifly::StringRef *)jarg2;
+  arg2 = (nifly::StringRef **)&temp2; 
+  (arg1)->push_back((nifly::StringRef *const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_StringRefVector_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  std::vector< StringRef * >::size_type result;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  result = ((std::vector< StringRef * > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_StringRefVector_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  std::vector< StringRef * >::size_type result;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  result = ((std::vector< StringRef * > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  std::vector< StringRef * >::size_type arg2 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (std::vector< StringRef * >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StringRefVector__SWIG_0() {
+  void * jresult ;
+  std::vector< StringRef * > *result = 0 ;
+  
+  result = (std::vector< StringRef * > *)new std::vector< StringRef * >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StringRefVector__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< nifly::StringRef * > *arg1 = 0 ;
+  std::vector< StringRef * > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::StringRef * > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::StringRef * > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< StringRef * > *)new std::vector< StringRef * >((std::vector< nifly::StringRef * > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_StringRefVector__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< StringRef * > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< StringRef * > *)new_std_vector_Sl_StringRef_Sm__Sg___SWIG_2(arg1);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StringRefVector_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  nifly::StringRef *result = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (nifly::StringRef *)std_vector_Sl_StringRef_Sm__Sg__getitemcopy(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StringRefVector_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  std::vector< StringRef * >::value_type *result = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< StringRef * >::value_type *) &std_vector_Sl_StringRef_Sm__Sg__getitem(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  nifly::StringRef **arg3 = 0 ;
+  nifly::StringRef *temp3 = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (nifly::StringRef *)jarg3;
+  arg3 = (nifly::StringRef **)&temp3; 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__setitem(arg1,arg2,(nifly::StringRef *const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_AddRange(void * jarg1, void * jarg2) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  std::vector< nifly::StringRef * > *arg2 = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (std::vector< nifly::StringRef * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::StringRef * > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_StringRef_Sm__Sg__AddRange(arg1,(std::vector< nifly::StringRef * > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StringRefVector_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< nifly::StringRef * > *result = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< nifly::StringRef * > *)std_vector_Sl_StringRef_Sm__Sg__GetRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  nifly::StringRef **arg3 = 0 ;
+  nifly::StringRef *temp3 = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (nifly::StringRef *)jarg3;
+  arg3 = (nifly::StringRef **)&temp3; 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__Insert(arg1,arg2,(nifly::StringRef *const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::StringRef * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::StringRef * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::StringRef * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__InsertRange(arg1,arg2,(std::vector< nifly::StringRef * > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__RemoveAt(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__RemoveRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_StringRefVector_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::StringRef **arg1 = 0 ;
+  int arg2 ;
+  nifly::StringRef *temp1 = 0 ;
+  std::vector< nifly::StringRef * > *result = 0 ;
+  
+  temp1 = (nifly::StringRef *)jarg1;
+  arg1 = (nifly::StringRef **)&temp1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::StringRef * > *)std_vector_Sl_StringRef_Sm__Sg__Repeat((nifly::StringRef *const &)*arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_Reverse__SWIG_0(void * jarg1) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  std_vector_Sl_StringRef_Sm__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_StringRefVector_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::StringRef * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::StringRef * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::StringRef * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_StringRef_Sm__Sg__SetRange(arg1,arg2,(std::vector< nifly::StringRef * > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_nifly_StringRefVector_Contains(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  nifly::StringRef **arg2 = 0 ;
+  nifly::StringRef *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  temp2 = (nifly::StringRef *)jarg2;
+  arg2 = (nifly::StringRef **)&temp2; 
+  result = (bool)std_vector_Sl_StringRef_Sm__Sg__Contains(arg1,(nifly::StringRef *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_nifly_StringRefVector_IndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  nifly::StringRef **arg2 = 0 ;
+  nifly::StringRef *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  temp2 = (nifly::StringRef *)jarg2;
+  arg2 = (nifly::StringRef **)&temp2; 
+  result = (int)std_vector_Sl_StringRef_Sm__Sg__IndexOf(arg1,(nifly::StringRef *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_nifly_StringRefVector_LastIndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  nifly::StringRef **arg2 = 0 ;
+  nifly::StringRef *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  temp2 = (nifly::StringRef *)jarg2;
+  arg2 = (nifly::StringRef **)&temp2; 
+  result = (int)std_vector_Sl_StringRef_Sm__Sg__LastIndexOf(arg1,(nifly::StringRef *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_nifly_StringRefVector_Remove(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  nifly::StringRef **arg2 = 0 ;
+  nifly::StringRef *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  temp2 = (nifly::StringRef *)jarg2;
+  arg2 = (nifly::StringRef **)&temp2; 
+  result = (bool)std_vector_Sl_StringRef_Sm__Sg__Remove(arg1,(nifly::StringRef *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_StringRefVector(void * jarg1) {
+  std::vector< StringRef * > *arg1 = (std::vector< StringRef * > *) 0 ;
+  
+  arg1 = (std::vector< StringRef * > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_begin(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiAVObject > >::iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  result = (arg1)->begin();
+  jresult = new nifly::BlockRefArray< nifly::NiAVObject >::iterator((const nifly::BlockRefArray< nifly::NiAVObject >::iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_end(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiAVObject > >::iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  result = (arg1)->end();
+  jresult = new nifly::BlockRefArray< nifly::NiAVObject >::iterator((const nifly::BlockRefArray< nifly::NiAVObject >::iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_cbegin(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiAVObject > >::const_iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  result = ((nifly::BlockRefArray< nifly::NiAVObject > const *)arg1)->cbegin();
+  jresult = new nifly::BlockRefArray< nifly::NiAVObject >::const_iterator((const nifly::BlockRefArray< nifly::NiAVObject >::const_iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_cend(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiAVObject > >::const_iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  result = ((nifly::BlockRefArray< nifly::NiAVObject > const *)arg1)->cend();
+  jresult = new nifly::BlockRefArray< nifly::NiAVObject >::const_iterator((const nifly::BlockRefArray< nifly::NiAVObject >::const_iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_GetRefs(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *result = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  result = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) &((nifly::BlockRefArray< nifly::NiAVObject > const *)arg1)->GetRefs();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_Clear(void * jarg1) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  (arg1)->Clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_SetSize(void * jarg1, int jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->SetSize(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_Sync(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  nifly::NiStreamReversible *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (nifly::NiStreamReversible *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiStreamReversible & type is null", 0);
+    return ;
+  } 
+  (arg1)->Sync(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_AddBlockRef(void * jarg1, int jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->AddBlockRef(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_GetBlockRef(void * jarg1, int jarg2) {
+  int jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  int arg2 ;
+  int result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (int)(arg1)->GetBlockRef(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_SetBlockRef(void * jarg1, int jarg2, int jarg3) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->SetBlockRef(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_RemoveBlockRef(void * jarg1, int jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->RemoveBlockRef(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_GetIndices(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  std::vector< int > *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (std::vector< int > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< int > & type is null", 0);
+    return ;
+  } 
+  (arg1)->GetIndices(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_GetIndexPtrs(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  std::set< nifly::Ref * > *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (std::set< nifly::Ref * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::set< nifly::Ref * > & type is null", 0);
+    return ;
+  } 
+  (arg1)->GetIndexPtrs(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_SetIndices(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  std::vector< int > *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  arg2 = (std::vector< int > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< int > const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetIndices((std::vector< int > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefArrayNiAVObject() {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiAVObject > *result = 0 ;
+  
+  result = (nifly::BlockRefArray< nifly::NiAVObject > *)new nifly::BlockRefArray< nifly::NiAVObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BlockRefArrayNiAVObject(void * jarg1) {
+  nifly::BlockRefArray< nifly::NiAVObject > *arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *) 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiAVObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_Clear(void * jarg1) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_Add(void * jarg1, void * jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  nifly::BlockRef< nifly::NiAVObject > *arg2 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (nifly::BlockRef< nifly::NiAVObject > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiAVObject > const & type is null", 0);
+    return ;
+  } 
+  (arg1)->push_back((nifly::BlockRef< nifly::NiAVObject > const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > >::size_type result;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  result = ((std::vector< nifly::BlockRef< nifly::NiAVObject > > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > >::size_type result;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  result = ((std::vector< nifly::BlockRef< nifly::NiAVObject > > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > >::size_type arg2 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (std::vector< nifly::BlockRef< nifly::NiAVObject > >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiAVObjectVector__SWIG_0() {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *result = 0 ;
+  
+  result = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)new std::vector< nifly::BlockRef< nifly::NiAVObject > >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiAVObjectVector__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = 0 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiAVObject > > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)new std::vector< nifly::BlockRef< nifly::NiAVObject > >((std::vector< nifly::BlockRef< nifly::NiAVObject > > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiAVObjectVector__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)new_std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg___SWIG_2(arg1);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  nifly::BlockRef< nifly::NiAVObject > result;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__getitemcopy(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = new nifly::BlockRef< nifly::NiAVObject >((const nifly::BlockRef< nifly::NiAVObject > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > >::value_type *result = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiAVObject > >::value_type *) &std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__getitem(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  nifly::BlockRef< nifly::NiAVObject > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (nifly::BlockRef< nifly::NiAVObject > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiAVObject > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__setitem(arg1,arg2,(nifly::BlockRef< nifly::NiAVObject > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_AddRange(void * jarg1, void * jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg2 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiAVObject > > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__AddRange(arg1,(std::vector< nifly::BlockRef< nifly::NiAVObject > > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__GetRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  nifly::BlockRef< nifly::NiAVObject > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (nifly::BlockRef< nifly::NiAVObject > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiAVObject > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Insert(arg1,arg2,(nifly::BlockRef< nifly::NiAVObject > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiAVObject > > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__InsertRange(arg1,arg2,(std::vector< nifly::BlockRef< nifly::NiAVObject > > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__RemoveAt(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__RemoveRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::BlockRef< nifly::NiAVObject > *arg1 = 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *result = 0 ;
+  
+  arg1 = (nifly::BlockRef< nifly::NiAVObject > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiAVObject > const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Repeat((nifly::BlockRef< nifly::NiAVObject > const &)*arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_Reverse__SWIG_0(void * jarg1) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObjectVector_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiAVObject > > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiAVObject_Sg__Sg__SetRange(arg1,arg2,(std::vector< nifly::BlockRef< nifly::NiAVObject > > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BlockRefNiAVObjectVector(void * jarg1) {
+  std::vector< nifly::BlockRef< nifly::NiAVObject > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *) 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiAVObject > > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiAVObject__SWIG_0() {
+  void * jresult ;
+  nifly::BlockRef< nifly::NiAVObject > *result = 0 ;
+  
+  result = (nifly::BlockRef< nifly::NiAVObject > *)new nifly::BlockRef< nifly::NiAVObject >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiAVObject__SWIG_1(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  nifly::BlockRef< nifly::NiAVObject > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  result = (nifly::BlockRef< nifly::NiAVObject > *)new nifly::BlockRef< nifly::NiAVObject >(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiAVObject_Sync(void * jarg1, void * jarg2) {
+  nifly::BlockRef< nifly::NiAVObject > *arg1 = (nifly::BlockRef< nifly::NiAVObject > *) 0 ;
+  nifly::NiStreamReversible *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRef< nifly::NiAVObject > *)jarg1; 
+  arg2 = (nifly::NiStreamReversible *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiStreamReversible & type is null", 0);
+    return ;
+  } 
+  (arg1)->Sync(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BlockRefNiAVObject(void * jarg1) {
+  nifly::BlockRef< nifly::NiAVObject > *arg1 = (nifly::BlockRef< nifly::NiAVObject > *) 0 ;
+  
+  arg1 = (nifly::BlockRef< nifly::NiAVObject > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_begin(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiProperty > >::iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  result = (arg1)->begin();
+  jresult = new nifly::BlockRefArray< nifly::NiProperty >::iterator((const nifly::BlockRefArray< nifly::NiProperty >::iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_end(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiProperty > >::iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  result = (arg1)->end();
+  jresult = new nifly::BlockRefArray< nifly::NiProperty >::iterator((const nifly::BlockRefArray< nifly::NiProperty >::iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_cbegin(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiProperty > >::const_iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  result = ((nifly::BlockRefArray< nifly::NiProperty > const *)arg1)->cbegin();
+  jresult = new nifly::BlockRefArray< nifly::NiProperty >::const_iterator((const nifly::BlockRefArray< nifly::NiProperty >::const_iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_cend(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  SwigValueWrapper< std::vector< nifly::BlockRef< nifly::NiProperty > >::const_iterator > result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  result = ((nifly::BlockRefArray< nifly::NiProperty > const *)arg1)->cend();
+  jresult = new nifly::BlockRefArray< nifly::NiProperty >::const_iterator((const nifly::BlockRefArray< nifly::NiProperty >::const_iterator &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_GetRefs(void * jarg1) {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *result = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  result = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) &((nifly::BlockRefArray< nifly::NiProperty > const *)arg1)->GetRefs();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_Clear(void * jarg1) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  (arg1)->Clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_SetSize(void * jarg1, int jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->SetSize(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_Sync(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  nifly::NiStreamReversible *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (nifly::NiStreamReversible *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiStreamReversible & type is null", 0);
+    return ;
+  } 
+  (arg1)->Sync(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_AddBlockRef(void * jarg1, int jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->AddBlockRef(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_GetBlockRef(void * jarg1, int jarg2) {
+  int jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  int arg2 ;
+  int result;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (int)(arg1)->GetBlockRef(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_SetBlockRef(void * jarg1, int jarg2, int jarg3) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->SetBlockRef(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_RemoveBlockRef(void * jarg1, int jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->RemoveBlockRef(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_GetIndices(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  std::vector< int > *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (std::vector< int > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< int > & type is null", 0);
+    return ;
+  } 
+  (arg1)->GetIndices(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_GetIndexPtrs(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  std::set< nifly::Ref * > *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (std::set< nifly::Ref * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::set< nifly::Ref * > & type is null", 0);
+    return ;
+  } 
+  (arg1)->GetIndexPtrs(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_SetIndices(void * jarg1, void * jarg2) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  std::vector< int > *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  arg2 = (std::vector< int > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< int > const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetIndices((std::vector< int > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefArrayNiProperty() {
+  void * jresult ;
+  nifly::BlockRefArray< nifly::NiProperty > *result = 0 ;
+  
+  result = (nifly::BlockRefArray< nifly::NiProperty > *)new nifly::BlockRefArray< nifly::NiProperty >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BlockRefArrayNiProperty(void * jarg1) {
+  nifly::BlockRefArray< nifly::NiProperty > *arg1 = (nifly::BlockRefArray< nifly::NiProperty > *) 0 ;
+  
+  arg1 = (nifly::BlockRefArray< nifly::NiProperty > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_Clear(void * jarg1) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_Add(void * jarg1, void * jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  nifly::BlockRef< nifly::NiProperty > *arg2 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (nifly::BlockRef< nifly::NiProperty > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiProperty > const & type is null", 0);
+    return ;
+  } 
+  (arg1)->push_back((nifly::BlockRef< nifly::NiProperty > const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > >::size_type result;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  result = ((std::vector< nifly::BlockRef< nifly::NiProperty > > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > >::size_type result;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  result = ((std::vector< nifly::BlockRef< nifly::NiProperty > > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > >::size_type arg2 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (std::vector< nifly::BlockRef< nifly::NiProperty > >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiPropertyVector__SWIG_0() {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *result = 0 ;
+  
+  result = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)new std::vector< nifly::BlockRef< nifly::NiProperty > >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiPropertyVector__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = 0 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiProperty > > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)new std::vector< nifly::BlockRef< nifly::NiProperty > >((std::vector< nifly::BlockRef< nifly::NiProperty > > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiPropertyVector__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)new_std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg___SWIG_2(arg1);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  nifly::BlockRef< nifly::NiProperty > result;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__getitemcopy(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = new nifly::BlockRef< nifly::NiProperty >((const nifly::BlockRef< nifly::NiProperty > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > >::value_type *result = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiProperty > >::value_type *) &std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__getitem(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  nifly::BlockRef< nifly::NiProperty > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (nifly::BlockRef< nifly::NiProperty > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiProperty > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__setitem(arg1,arg2,(nifly::BlockRef< nifly::NiProperty > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_AddRange(void * jarg1, void * jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg2 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiProperty > > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__AddRange(arg1,(std::vector< nifly::BlockRef< nifly::NiProperty > > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *result = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__GetRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  nifly::BlockRef< nifly::NiProperty > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (nifly::BlockRef< nifly::NiProperty > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiProperty > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Insert(arg1,arg2,(nifly::BlockRef< nifly::NiProperty > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiProperty > > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__InsertRange(arg1,arg2,(std::vector< nifly::BlockRef< nifly::NiProperty > > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__RemoveAt(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__RemoveRange(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  nifly::BlockRef< nifly::NiProperty > *arg1 = 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *result = 0 ;
+  
+  arg1 = (nifly::BlockRef< nifly::NiProperty > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::BlockRef< nifly::NiProperty > const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Repeat((nifly::BlockRef< nifly::NiProperty > const &)*arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_Reverse__SWIG_0(void * jarg1) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  } catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiPropertyVector_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  int arg2 ;
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg3 = 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< nifly::BlockRef< nifly::NiProperty > > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_nifly_BlockRef_Sl_nifly_NiProperty_Sg__Sg__SetRange(arg1,arg2,(std::vector< nifly::BlockRef< nifly::NiProperty > > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BlockRefNiPropertyVector(void * jarg1) {
+  std::vector< nifly::BlockRef< nifly::NiProperty > > *arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *) 0 ;
+  
+  arg1 = (std::vector< nifly::BlockRef< nifly::NiProperty > > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiProperty__SWIG_0() {
+  void * jresult ;
+  nifly::BlockRef< nifly::NiProperty > *result = 0 ;
+  
+  result = (nifly::BlockRef< nifly::NiProperty > *)new nifly::BlockRef< nifly::NiProperty >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_new_BlockRefNiProperty__SWIG_1(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  nifly::BlockRef< nifly::NiProperty > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  result = (nifly::BlockRef< nifly::NiProperty > *)new nifly::BlockRef< nifly::NiProperty >(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_BlockRefNiProperty_Sync(void * jarg1, void * jarg2) {
+  nifly::BlockRef< nifly::NiProperty > *arg1 = (nifly::BlockRef< nifly::NiProperty > *) 0 ;
+  nifly::NiStreamReversible *arg2 = 0 ;
+  
+  arg1 = (nifly::BlockRef< nifly::NiProperty > *)jarg1; 
+  arg2 = (nifly::NiStreamReversible *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "nifly::NiStreamReversible & type is null", 0);
+    return ;
+  } 
+  (arg1)->Sync(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_BlockRefNiProperty(void * jarg1) {
+  nifly::BlockRef< nifly::NiProperty > *arg1 = (nifly::BlockRef< nifly::NiProperty > *) 0 ;
+  
+  arg1 = (nifly::BlockRef< nifly::NiProperty > *)jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT nifly::NiStreamBase * SWIGSTDCALL CSharp_nifly_NiIStream_SWIGUpcast(nifly::NiIStream *jarg1) {
     return (nifly::NiStreamBase *)jarg1;
 }
 
 SWIGEXPORT nifly::NiStreamBase * SWIGSTDCALL CSharp_nifly_NiOStream_SWIGUpcast(nifly::NiOStream *jarg1) {
     return (nifly::NiStreamBase *)jarg1;
+}
+
+SWIGEXPORT nifly::NiObject * SWIGSTDCALL CSharp_nifly_ClonableHeaderObject_SWIGUpcast(nifly::Clonable< nifly::NiHeader,nifly::NiObject > *jarg1) {
+    return (nifly::NiObject *)jarg1;
+}
+
+SWIGEXPORT nifly::NiObject * SWIGSTDCALL CSharp_nifly_StreamableUnknownObject_SWIGUpcast(nifly::Streamable< nifly::NiUnknown,nifly::NiObject > *jarg1) {
+    return (nifly::NiObject *)jarg1;
+}
+
+SWIGEXPORT nifly::NiObject * SWIGSTDCALL CSharp_nifly_StreamableObjectNETObject_SWIGUpcast(nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *jarg1) {
+    return (nifly::NiObject *)jarg1;
+}
+
+SWIGEXPORT nifly::NiObjectNET * SWIGSTDCALL CSharp_nifly_StreamableAVObjectObjectNET_SWIGUpcast(nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *jarg1) {
+    return (nifly::NiObjectNET *)jarg1;
 }
 
 SWIGEXPORT nifly::bhkLimitedForceConstraintMotor * SWIGSTDCALL CSharp_nifly_bhkPositionConstraintMotor_SWIGUpcast(nifly::bhkPositionConstraintMotor *jarg1) {
@@ -49429,6 +52297,34 @@ SWIGEXPORT nifly::bhkLimitedForceConstraintMotor * SWIGSTDCALL CSharp_nifly_bhkV
 
 SWIGEXPORT nifly::bhkLimitedForceConstraintMotor * SWIGSTDCALL CSharp_nifly_bhkSpringDamperConstraintMotor_SWIGUpcast(nifly::bhkSpringDamperConstraintMotor *jarg1) {
     return (nifly::bhkLimitedForceConstraintMotor *)jarg1;
+}
+
+SWIGEXPORT nifly::Streamable< nifly::NiNode,nifly::NiAVObject > * SWIGSTDCALL CSharp_nifly_NiNode_SWIGUpcast(nifly::NiNode *jarg1) {
+    return (nifly::Streamable< nifly::NiNode,nifly::NiAVObject > *)jarg1;
+}
+
+SWIGEXPORT nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > * SWIGSTDCALL CSharp_nifly_NiObjectNET_SWIGUpcast(nifly::NiObjectNET *jarg1) {
+    return (nifly::Streamable< nifly::NiObjectNET,nifly::NiObject > *)jarg1;
+}
+
+SWIGEXPORT nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > * SWIGSTDCALL CSharp_nifly_NiAVObject_SWIGUpcast(nifly::NiAVObject *jarg1) {
+    return (nifly::Streamable< nifly::NiAVObject,nifly::NiObjectNET > *)jarg1;
+}
+
+SWIGEXPORT nifly::RefArray * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiAVObject_SWIGUpcast(nifly::BlockRefArray< nifly::NiAVObject > *jarg1) {
+    return (nifly::RefArray *)jarg1;
+}
+
+SWIGEXPORT nifly::Ref * SWIGSTDCALL CSharp_nifly_BlockRefNiAVObject_SWIGUpcast(nifly::BlockRef< nifly::NiAVObject > *jarg1) {
+    return (nifly::Ref *)jarg1;
+}
+
+SWIGEXPORT nifly::RefArray * SWIGSTDCALL CSharp_nifly_BlockRefArrayNiProperty_SWIGUpcast(nifly::BlockRefArray< nifly::NiProperty > *jarg1) {
+    return (nifly::RefArray *)jarg1;
+}
+
+SWIGEXPORT nifly::Ref * SWIGSTDCALL CSharp_nifly_BlockRefNiProperty_SWIGUpcast(nifly::BlockRef< nifly::NiProperty > *jarg1) {
+    return (nifly::Ref *)jarg1;
 }
 
 #ifdef __cplusplus

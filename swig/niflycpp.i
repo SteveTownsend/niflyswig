@@ -41,6 +41,16 @@ namespace std {
 
 %include Animation.hpp
 %include BasicTypes.hpp
+
+namespace nifly {
+  %template(ClonableHeaderObject) Clonable<NiHeader, NiObject>;
+  %template(StreamableNodeAVObject) Streamable<NiNode, NiAVObject>;
+  %template(ClonableShapeAVObject) Clonable<NiShape, NiAVObject>;
+  %template(StreamableUnknownObject) Streamable<NiUnknown, NiObject>;
+  %template(StreamableObjectNETObject) Streamable<NiObjectNET, NiObject>;
+  %template(StreamableAVObjectObjectNET) Streamable<NiAVObject, NiObjectNET>;
+};
+
 %include bhk.hpp
 %include ExtraData.hpp
 %include Factory.hpp
@@ -56,3 +66,27 @@ namespace std {
 %include Shaders.hpp
 %include Skin.hpp
 %include VertexData.hpp
+
+namespace nifly {
+
+  %template(StringExtraDataChildren) NifFile::GetChildren<NiStringExtraData>;
+  %template(NodeChildren) NifFile::GetChildren<NiNode>;
+
+  %template(NiNodeBlock) NiHeader::GetBlock<NiNode>;
+  %template(NiAVObjectBlock) NiHeader::GetBlock<NiAVObject>;
+  %template(NiPropertyBlock) NiHeader::GetBlock<NiProperty>;
+};
+
+
+
+%template(NiStringExtraDataVector) std::vector<nifly::NiStringExtraData*>;
+%template(StringRefVector) std::vector<StringRef*>;
+
+%template(BlockRefArrayNiAVObject) nifly::BlockRefArray<nifly::NiAVObject>;
+%template(BlockRefNiAVObjectVector) std::vector<nifly::BlockRef<nifly::NiAVObject>>;
+%template(BlockRefNiAVObject) nifly::BlockRef<nifly::NiAVObject>;
+
+%template(BlockRefArrayNiProperty) nifly::BlockRefArray<nifly::NiProperty>;
+%template(BlockRefNiPropertyVector) std::vector<nifly::BlockRef<nifly::NiProperty>>;
+%template(BlockRefNiProperty) nifly::BlockRef<nifly::NiProperty>;
+
