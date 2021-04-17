@@ -13,4 +13,4 @@ The solution contains three projects and relies on a fork of the *nifly* baselin
 
 It is recommended to ensure the test works before trying more complex NIF manipulation using your locally-exported NuGet package.
 
-When you first open the solution, you will get C# erros due to the test project not finding generated code. Build the solution and the errors should go away.
+When you first open the solution, you will get C# errors due to the test project not finding generated code. Build the solution and the errors should go away.
