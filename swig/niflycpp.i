@@ -39,18 +39,10 @@ namespace std {
   %template(vectorf) vector<float>;
 };
 
-%include Animation.hpp
 %include BasicTypes.hpp
-
-namespace nifly {
-  %template(ClonableHeaderObject) Clonable<NiHeader, NiObject>;
-  %template(StreamableNodeAVObject) Streamable<NiNode, NiAVObject>;
-  %template(ClonableShapeAVObject) Clonable<NiShape, NiAVObject>;
-  %template(StreamableUnknownObject) Streamable<NiUnknown, NiObject>;
-  %template(StreamableObjectNETObject) Streamable<NiObjectNET, NiObject>;
-  %template(StreamableAVObjectObjectNET) Streamable<NiAVObject, NiObjectNET>;
-};
-
+%include Objects.hpp
+%include Nodes.hpp
+%include Animation.hpp
 %include bhk.hpp
 %include ExtraData.hpp
 %include Factory.hpp
@@ -59,34 +51,33 @@ namespace nifly {
 %include Keys.hpp
 %include NifFile.hpp
 %include NifUtil.hpp
-%include Nodes.hpp
 %include Object3d.hpp
-%include Objects.hpp
 %include Particles.hpp
 %include Shaders.hpp
 %include Skin.hpp
 %include VertexData.hpp
 
 namespace nifly {
-
   %template(StringExtraDataChildren) NifFile::GetChildren<NiStringExtraData>;
-  %template(NodeChildren) NifFile::GetChildren<NiNode>;
 
   %template(NiNodeBlock) NiHeader::GetBlock<NiNode>;
   %template(NiAVObjectBlock) NiHeader::GetBlock<NiAVObject>;
   %template(NiPropertyBlock) NiHeader::GetBlock<NiProperty>;
+
+  %template(CreateNamedBSFadeNode) NifFile::CreateNamed<BSFadeNode>;
 };
 
+// helpers for NiStringRef list retrieval
+%template(StringRefVectorBase) nifly::NiVectorBase<nifly::NiStringRef, uint32_t>;
+%template(StringRefVector) nifly::NiStringRefVector<uint32_t>;
+%template(StringRefPointerVector) std::vector<nifly::NiStringRef*>;
 
+%template(BlockRefArrayAVObject) nifly::NiBlockRefArray<nifly::NiAVObject>;
+%template(BlockRefAVObjectVector) std::vector<nifly::NiBlockRef<nifly::NiAVObject>>;
+%template(BlockRefAVObject) nifly::NiBlockRef<nifly::NiAVObject>;
 
-%template(NiStringExtraDataVector) std::vector<nifly::NiStringExtraData*>;
-%template(StringRefVector) std::vector<StringRef*>;
+%template(BlockRefArrayProperty) nifly::NiBlockRefArray<nifly::NiProperty>;
+%template(BlockRefPropertyVector) std::vector<nifly::NiBlockRef<nifly::NiProperty>>;
+%template(BlockRefProperty) nifly::NiBlockRef<nifly::NiProperty>;
 
-%template(BlockRefArrayNiAVObject) nifly::BlockRefArray<nifly::NiAVObject>;
-%template(BlockRefNiAVObjectVector) std::vector<nifly::BlockRef<nifly::NiAVObject>>;
-%template(BlockRefNiAVObject) nifly::BlockRef<nifly::NiAVObject>;
-
-%template(BlockRefArrayNiProperty) nifly::BlockRefArray<nifly::NiProperty>;
-%template(BlockRefNiPropertyVector) std::vector<nifly::BlockRef<nifly::NiProperty>>;
-%template(BlockRefNiProperty) nifly::BlockRef<nifly::NiProperty>;
-
+%template(BlockRefArrayExtraData) nifly::NiBlockRefArray<nifly::NiExtraData>;

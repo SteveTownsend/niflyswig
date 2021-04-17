@@ -15,27 +15,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Bethesda NIF C#</PackageTags>
     <PackageReleaseNotes>Initial MVP Release</PackageReleaseNotes>
-    <Version>1.0.20</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Base.cs" />
-    <Compile Remove="ClonableUnknownObject.cs" />
-    <Compile Remove="IClone.cs" />
-    <Compile Remove="IStreamable.cs" />
-    <Compile Remove="NiAVObjectCrtp.cs" />
-    <Compile Remove="NiAVObjectCrtpStream.cs" />
-    <Compile Remove="NiObjectNETCRTP.cs" />
-    <Compile Remove="NiObjectNETCrtpF.cs" />
-    <Compile Remove="NiObjectNETCrtpStream.cs" />
-    <Compile Remove="NiObjectNETCrtpT.cs" />
-    <Compile Remove="NiObjectStream.cs" />
-    <Compile Remove="NiObjectStreamable.cs" />
-    <Compile Remove="NiObjectStrmea.cs" />
-    <Compile Remove="NiPropertyCrtp.cs" />
-    <Compile Remove="NiStringExtraDataCrtp.cs" />
-    <Compile Remove="NiStringExtraDataCrtpStream.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\niflycpp.dll" Pack="true" PackagePath="lib\net5.0">
