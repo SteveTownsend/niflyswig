@@ -10,6 +10,7 @@ The solution contains three projects and relies on a fork of the *nifly* baselin
 - *niflycpp* uses SWIG template file *niflycpp.i* to generate C# wrappers for the nifly library
 - *nifly* is the sink for the generated C# code - export to a local NuGet repository for testing outside this solution
 - *nifly-test* is a simple test app that reads NIF files of your choosing from the *data* directory, rewrites to a new file and brute-force compares them to the original.
-It is recommended to ensure the test works bfore tring more complex NIF manipulation using your locally-exported NuGet package.
+
+It is recommended to ensure the test works before trying more complex NIF manipulation using your locally-exported NuGet package.
 
 When you first open the solution, you will get C# erros due to the test project not finding generated code. Build the solution and the errors should go away.
