@@ -58,7 +58,7 @@ namespace std {
 %include VertexData.hpp
 
 namespace nifly {
-  %template(StringExtraDataChildren) NifFile::CloneChildren<NiStringExtraData>;
+  %template(StringExtraDataChildren) NifFile::GetChildren<NiStringExtraData>;
 
   %template(NiNodeBlock) NiHeader::GetBlock<NiNode>;
   %template(NiAVObjectBlock) NiHeader::GetBlock<NiAVObject>;
