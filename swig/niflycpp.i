@@ -81,3 +81,5 @@ namespace nifly {
 %template(BlockRefProperty) nifly::NiBlockRef<nifly::NiProperty>;
 
 %template(BlockRefArrayExtraData) nifly::NiBlockRefArray<nifly::NiExtraData>;
+
+%template(StringExtraDataVector)  std::vector<nifly::NiStringExtraData*>;
