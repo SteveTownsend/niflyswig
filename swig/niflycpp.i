@@ -32,20 +32,65 @@ using namespace nifly;
 %include "std_string.i"
 %include "std_vector.i"
 %include "std_set.i"
+%include "std_array.i"
+%include "std_deque.i"
+
+%apply const std::string & {std::string &};
 
 namespace std {
-  %template(vectoru16) vector<uint16_t>;
-  %template(vectoru32) vector<uint32_t>;
-  %template(vectoru64) vector<uint64_t>;
-  %template(vectorf) vector<float>;
+  %template(arrayuint16_6) array<uint16_t, 6>;
+  %template(arrayuint8_3) array<uint8_t, 3>;
+  %template(arrayuint8_4) array<uint8_t, 4>;
+  %template(arrayfloat_4) array<float, 4>;
+  %template(arrayfloat_6) array<float, 6>;
+  %template(arrayfloat_12) array<float, 12>;
+  %template(arrayfloat_16) array<float, 16>;
+
+  %template(dequebool) deque<bool>;
+
+  %template(vector2Dint) vector<vector<int>>;
+  %template(vector2Duint16) vector<vector<uint16_t>>;
+  %template(vector2Duchar) vector<vector<unsigned char>>;
+  %template(vectorchar) vector<char>;
+  %template(vectorfloat) vector<float>;
+  %template(vectorint) vector<int>;
+  %template(vectorstring) vector<string>;
+  %template(vectoruchar) vector<unsigned char>;
+  %template(vectoruint16) vector<uint16_t>;
+  %template(vectoruint32) vector<uint32_t>;
+  %template(vectoruint64) vector<uint64_t>;
+  %template(vectorshort) vector<short>;
 };
 
+%include "typemaps.i"
+
+%define %standard_byref_param(TYPE)
+  %apply TYPE& INOUT { TYPE& };
+%enddef
+%standard_byref_param(int)
+%standard_byref_param(float)
+ 
 %typemap(csclassmodifiers) nifly::NiHeader "public partial class";
 
 %typemap(cscode) nifly::NiHeader %{
+  private System.Collections.Generic.IDictionary<int, NiObject> blockView = new System.Collections.Generic.Dictionary<int, NiObject>();
+
+  // Produce a cloned view of the underlying blocks for safe editing and later persistence to a new NifFile
   public T GetBlockById<T>(int blockId) where T : NiObject
   {
-      return GetBlockById(blockId) as T;
+    T viewed = null;
+    if (blockView.ContainsKey(blockId)) {
+       viewed = blockView[blockId] as T;
+    }
+    else
+    {
+      viewed = GetBlockById(blockId) as T;
+      if (viewed != null)
+      {
+        blockView[blockId] = viewed;
+      }
+    }
+    return viewed != null ? (T)viewed.Clone() : null;
   }
 %}
 
@@ -57,23 +102,70 @@ namespace std {
     return ret;
 }
 
+%pragma(csharp) modulecode=%{
+    public class TextureFinder
+    {
+        private NiHeader header;
+        private System.Collections.Generic.ISet<string>? textures;
+        public TextureFinder(NiHeader target)
+        {
+            header = target;
+        }
+
+        public System.Collections.Generic.IEnumerable<string> UniqueTextures
+        {
+            get
+            {
+                if (textures == null)
+                {
+                    textures = new System.Collections.Generic.HashSet<string>();
+                    for (int blockId = 0; blockId < header.GetNumBlocks(); ++blockId)
+                    {
+                        BSShaderTextureSet textureSet = header.GetBlockById<BSShaderTextureSet>(blockId);
+                        if (textureSet != null)
+                        {
+                            foreach (NiString texture in textureSet.textures.items())
+                            {
+                                if (texture != null && !System.String.IsNullOrEmpty(texture.get()))
+                                {
+                                    textures.Add(texture.get());
+                                }
+                            }
+                        }
+                    }
+                }
+                return textures;
+            }
+        }
+    }
+%}
+
+// Object3D operators, mostly
+%rename(opAdd) *::operator+;
+%rename(opDiv) *::operator/;
+%rename(opEq) *::operator==;
+%rename(opLt) *::operator<;
+%rename(opMult) *::operator*;
+%rename(opNeq) *::operator!=;
+%rename(opSub) *::operator-;
+
+%include Object3d.hpp
 %include BasicTypes.hpp
+%include Keys.hpp
 %include Objects.hpp
+%include Shaders.hpp
 %include Nodes.hpp
+%include VertexData.hpp
+%include Geometry.hpp
 %include Animation.hpp
 %include ExtraData.hpp
 %include bhk.hpp
 %include Factory.hpp
-%include Geometry.hpp
 %include KDMatcher.hpp
-%include Keys.hpp
 %include NifFile.hpp
 %include NifUtil.hpp
-%include Object3d.hpp
 %include Particles.hpp
-%include Shaders.hpp
 %include Skin.hpp
-%include VertexData.hpp
 
 namespace nifly {
   %template(StringExtraDataChildren) NifFile::GetChildren<NiStringExtraData>;
@@ -992,72 +1084,257 @@ if (objType == bhkAabbPhantom.BlockName)
 %}
 
 // helpers for NiStringRef list retrieval
-%template(StringRefVectorBase) nifly::NiVectorBase<nifly::NiStringRef, uint32_t>;
-%template(StringRefVector) nifly::NiStringRefVector<uint32_t>;
-%template(StringRefPointerVector) std::vector<nifly::NiStringRef*>;
+%template(NiVectorBaseNiStringRef) nifly::NiVectorBase<nifly::NiStringRef, uint32_t>;
+%template(NiStringRefVectoru32) nifly::NiStringRefVector<uint32_t>;
 
-%template(BlockRefArrayAVObject) nifly::NiBlockRefArray<nifly::NiAVObject>;
-%template(BlockRefAVObjectVector) std::vector<nifly::NiBlockRef<nifly::NiAVObject>>;
-%template(BlockRefAVObject) nifly::NiBlockRef<nifly::NiAVObject>;
+%template(setNiRef) std::set<nifly::NiRef*>;
 
-%template(BlockRefArrayProperty) nifly::NiBlockRefArray<nifly::NiProperty>;
-%template(BlockRefPropertyVector) std::vector<nifly::NiBlockRef<nifly::NiProperty>>;
-%template(BlockRefProperty) nifly::NiBlockRef<nifly::NiProperty>;
+%template(arrayVector3_3) std::array<nifly::Vector3, 3>;
 
-%template(BlockRefArrayExtraData) nifly::NiBlockRefArray<nifly::NiExtraData>;
+%template(NiBlockRefAdditionalGeomData) nifly::NiBlockRef<nifly::AdditionalGeomData>;
+%template(NiBlockRefbhkCompressedMeshShapeData) nifly::NiBlockRef<nifly::bhkCompressedMeshShapeData>;
+%template(NiBlockRefbhkConvexShape) nifly::NiBlockRef<nifly::bhkConvexShape>;
+%template(NiBlockRefbhkEntity) nifly::NiBlockRef<nifly::bhkEntity>;
+%template(NiBlockRefbhkRigidBody) nifly::NiBlockRef<nifly::bhkRigidBody>;
+%template(NiBlockRefbhkSerializable) nifly::NiBlockRef<nifly::bhkSerializable>;
+%template(NiBlockRefbhkShape) nifly::NiBlockRef<nifly::bhkShape>;
+%template(NiBlockRefBSAnimNote) nifly::NiBlockRef<nifly::BSAnimNote>;
+%template(NiBlockRefBSAnimNotes) nifly::NiBlockRef<nifly::BSAnimNotes>;
+%template(NiBlockRefBSMasterParticleSystem) nifly::NiBlockRef<nifly::BSMasterParticleSystem>;
+%template(NiBlockRefBSMultiBound) nifly::NiBlockRef<nifly::BSMultiBound>;
+%template(NiBlockRefBSMultiBoundData) nifly::NiBlockRef<nifly::BSMultiBoundData>;
+%template(NiBlockRefBSShaderProperty) nifly::NiBlockRef<nifly::BSShaderProperty>;
+%template(NiBlockRefBSShaderTextureSet) nifly::NiBlockRef<nifly::BSShaderTextureSet>;
+%template(NiBlockRefBSSkinBoneData) nifly::NiBlockRef<nifly::BSSkinBoneData>;
+%template(NiBlockRefhkPackedNiTriStripsData) nifly::NiBlockRef<nifly::hkPackedNiTriStripsData>;
+%template(NiBlockRefNiAlphaProperty) nifly::NiBlockRef<nifly::NiAlphaProperty>;
+%template(NiBlockRefNiAVObject) nifly::NiBlockRef<nifly::NiAVObject>;
+%template(NiBlockRefNiBoneContainer) nifly::NiBlockRef<nifly::NiBoneContainer>;
+%template(NiBlockRefNiBoolData) nifly::NiBlockRef<nifly::NiBoolData>;
+%template(NiBlockRefNiBSplineBasisData) nifly::NiBlockRef<nifly::NiBSplineBasisData>;
+%template(NiBlockRefNiBSplineData) nifly::NiBlockRef<nifly::NiBSplineData>;
+%template(NiBlockRefNiCollisionObject) nifly::NiBlockRef<nifly::NiCollisionObject>;
+%template(NiBlockRefNiColorData) nifly::NiBlockRef<nifly::NiColorData>;
+%template(NiBlockRefNiControllerManager) nifly::NiBlockRef<nifly::NiControllerManager>;
+%template(NiBlockRefNiControllerSequence) nifly::NiBlockRef<nifly::NiControllerSequence>;
+%template(NiBlockRefNiDefaultAVObjectPalette) nifly::NiBlockRef<nifly::NiDefaultAVObjectPalette>;
+%template(NiBlockRefNiDynamicEffect) nifly::NiBlockRef<nifly::NiDynamicEffect>;
+%template(NiBlockRefNiExtraData) nifly::NiBlockRef<nifly::NiExtraData>;
+%template(NiBlockRefNiFloatData) nifly::NiBlockRef<nifly::NiFloatData>;
+%template(NiBlockRefNiFloatInterpolator) nifly::NiBlockRef<nifly::NiFloatInterpolator>;
+%template(NiBlockRefNiGeometryData) nifly::NiBlockRef<nifly::NiGeometryData>;
+%template(NiBlockRefNiInterpController) nifly::NiBlockRef<nifly::NiInterpController>;
+%template(NiBlockRefNiInterpolator) nifly::NiBlockRef<nifly::NiInterpolator>;
+%template(NiBlockRefNiLODData) nifly::NiBlockRef<nifly::NiLODData>;
+%template(NiBlockRefNiMorphData) nifly::NiBlockRef<nifly::NiMorphData>;
+%template(NiBlockRefNiNode) nifly::NiBlockRef<nifly::NiNode>;
+%template(NiBlockRefNiObject) nifly::NiBlockRef<nifly::NiObject>;
+%template(NiBlockRefNiObjectNET) nifly::NiBlockRef<nifly::NiObjectNET>;
+%template(NiBlockRefNiPalette) nifly::NiBlockRef<nifly::NiPalette>;
+%template(NiBlockRefNiParticleSystem) nifly::NiBlockRef<nifly::NiParticleSystem>;
+%template(NiBlockRefNiPoint3Interpolator) nifly::NiBlockRef<nifly::NiPoint3Interpolator>;
+%template(NiBlockRefNiPosData) nifly::NiBlockRef<nifly::NiPosData>;
+%template(NiBlockRefNiProperty) nifly::NiBlockRef<nifly::NiProperty>;
+%template(NiBlockRefNiPSysCollider) nifly::NiBlockRef<nifly::NiPSysCollider>;
+%template(NiBlockRefNiPSysColliderManager) nifly::NiBlockRef<nifly::NiPSysColliderManager>;
+%template(NiBlockRefNiPSysData) nifly::NiBlockRef<nifly::NiPSysData>;
+%template(NiBlockRefNiPSysModifier) nifly::NiBlockRef<nifly::NiPSysModifier>;
+%template(NiBlockRefNiPSysSpawnModifier) nifly::NiBlockRef<nifly::NiPSysSpawnModifier>;
+%template(NiBlockRefNiShader) nifly::NiBlockRef<nifly::NiShader>;
+%template(NiBlockRefNiSkinData) nifly::NiBlockRef<nifly::NiSkinData>;
+%template(NiBlockRefNiSkinPartition) nifly::NiBlockRef<nifly::NiSkinPartition>;
+%template(NiBlockRefNiSourceTexture) nifly::NiBlockRef<nifly::NiSourceTexture>;
+%template(NiBlockRefNiTextKeyExtraData) nifly::NiBlockRef<nifly::NiTextKeyExtraData>;
+%template(NiBlockRefNiTimeController) nifly::NiBlockRef<nifly::NiTimeController>;
+%template(NiBlockRefNiTransformData) nifly::NiBlockRef<nifly::NiTransformData>;
+%template(NiBlockRefNiUVData) nifly::NiBlockRef<nifly::NiUVData>;
+%template(NiBlockRefNiTriStripsData) nifly::NiBlockRef<nifly::NiTriStripsData>;
+%template(NiBlockRefTextureRenderData) nifly::NiBlockRef<nifly::TextureRenderData>;
 
-%template(StringExtraDataVector)  std::vector<nifly::NiStringExtraData*>;
+%template(NiVectorBasehalf) nifly::NiVectorBase<half_float::half, uint32_t>;
+%template(NiVectorhalf) nifly::NiVector<half_float::half, uint32_t>;
+%template(NiVectorBasefloat) nifly::NiVectorBase<float, uint32_t>;
+%template(NiVectorfloat) nifly::NiVector<float, uint32_t>;
+%template(NiVectorBaseint) nifly::NiVectorBase<int, uint32_t>;
+%template(NiVectorint) nifly::NiVector<int, uint32_t>;
+%template(NiVectorBaseshort) nifly::NiVectorBase<short, uint32_t>;
+%template(NiVectorshort) nifly::NiVector<short, uint32_t>;
+%template(NiVectorBaseuint) nifly::NiVectorBase<unsigned int, uint32_t>;
+%template(NiVectoruint) nifly::NiVector<unsigned int, uint32_t>;
+%template(NiVectorBaseuchar) nifly::NiVectorBase<unsigned char, uint32_t>;
+%template(NiVectoruchar) nifly::NiVector<unsigned char, uint32_t>;
+%template(NiVectorBaseushort) nifly::NiVectorBase<unsigned short, uint32_t>;
+%template(NiVectorushort) nifly::NiVector<unsigned short, uint32_t>;
+%template(NiVectorBaseushortushort) nifly::NiVectorBase<unsigned short, unsigned short>;
+%template(NiVectorushortushort) nifly::NiVector<unsigned short, unsigned short>;
+%template(NiVectorBasebhkCMSDMaterial) nifly::NiVectorBase<bhkCMSDMaterial, uint32_t>;
+%template(NiVectorbhkCMSDMaterial) nifly::NiVector<bhkCMSDMaterial, uint32_t>;
+%template(NiVectorBasebhkCMSDTransform) nifly::NiVectorBase<bhkCMSDTransform, uint32_t>;
+%template(NiVectorbhkCMSDTransform) nifly::NiVector<bhkCMSDTransform, uint32_t>;
+%template(NiVectorBaseBoneMatrix) nifly::NiVectorBase<BoneMatrix, uint32_t>;
+%template(NiVectorBoneMatrix) nifly::NiVector<BoneMatrix, uint32_t>;
+%template(NiVectorBaseBoundingSphere) nifly::NiVectorBase<BoundingSphere, uint32_t>;
+%template(NiVectorBoundingSphere) nifly::NiVector<BoundingSphere, uint32_t>;
+%template(NiVectorBaseBSPackedGeomDataCombined) nifly::NiVectorBase<BSPackedGeomDataCombined, uint32_t>;
+%template(NiVectorBSPackedGeomDataCombined) nifly::NiVector<BSPackedGeomDataCombined, uint32_t>;
+%template(NiVectorBaseByteColor4) nifly::NiVectorBase<ByteColor4, uint32_t>;
+%template(NiVectorByteColor4) nifly::NiVector<ByteColor4, uint32_t>;
+%template(NiVectorBaseHavokFilter) nifly::NiVectorBase<HavokFilter, uint32_t>;
+%template(NiVectorHavokFilter) nifly::NiVector<HavokFilter, uint32_t>;
+%template(NiVectorBasehkSubPartData) nifly::NiVectorBase<hkSubPartData, unsigned short>;
+%template(NiVectorhkSubPartData) nifly::NiVector<hkSubPartData, unsigned short>;
+%template(NiVectorBaseLODRange) nifly::NiVectorBase<LODRange, uint32_t>;
+%template(NiVectorLODRange) nifly::NiVector<LODRange, uint32_t>;
+%template(NiVectorBaseNiString) nifly::NiVectorBase<NiString, uint32_t>;
+%template(NiStringVector) nifly::NiStringVector<uint32_t, 4>;
+%template(NiVectorBaseVector3) nifly::NiVectorBase<Vector3, uint32_t>;
+%template(NiVectorVector3) nifly::NiVector<Vector3, uint32_t>;
+%template(NiVectorBaseVector4) nifly::NiVectorBase<Vector4, uint32_t>;
+%template(NiVectorVector4) nifly::NiVector<Vector4, uint32_t>;
 
-%template(RefSet) std::set<nifly::NiRef*>;
+%template(vectorNiBlockRefbhkConvexShape) std::vector<nifly::NiBlockRef<nifly::bhkConvexShape>>;
+%template(vectorNiBlockRefbhkEntity) std::vector<nifly::NiBlockRef<nifly::bhkEntity>>;
+%template(vectorNiBlockRefbhkSerializable) std::vector<nifly::NiBlockRef<nifly::bhkSerializable>>;
+%template(vectorNiBlockRefbhkShape) std::vector<nifly::NiBlockRef<nifly::bhkShape>>;
+%template(vectorNiBlockRefNiAVObject) std::vector<nifly::NiBlockRef<nifly::NiAVObject>>;
+%template(vectorNiBlockRefBSAnimNote) std::vector<nifly::NiBlockRef<nifly::BSAnimNote>>;
+%template(vectorNiBlockRefBSAnimNotes) std::vector<nifly::NiBlockRef<nifly::BSAnimNotes>>;
+%template(vectorNiBlockRefNiControllerSequence) std::vector<nifly::NiBlockRef<nifly::NiControllerSequence>>;
+%template(vectorNiBlockRefNiDynamicEffect) std::vector<nifly::NiBlockRef<nifly::NiDynamicEffect>>;
+%template(vectorNiBlockRefNiExtraData) std::vector<nifly::NiBlockRef<nifly::NiExtraData>>;
+%template(vectorNiBlockRefNiNode) std::vector<nifly::NiBlockRef<nifly::NiNode>>;
+%template(vectorNiBlockRefNiObject) std::vector<nifly::NiBlockRef<nifly::NiObject>>;
+%template(vectorNiBlockRefNiProperty) std::vector<nifly::NiBlockRef<nifly::NiProperty>>;
+%template(vectorNiBlockRefNiPSysModifier) std::vector<nifly::NiBlockRef<nifly::NiPSysModifier>>;
+%template(vectorNiBlockRefNiSourceTexture) std::vector<nifly::NiBlockRef<nifly::NiSourceTexture>>;
+%template(vectorNiBlockRefNiTriStripsData) std::vector<nifly::NiBlockRef<nifly::NiTriStripsData>>;
 
-%template(BlockRefAdditionalGeomData) nifly::NiBlockRef<nifly::AdditionalGeomData>;
-%template(BlockRefbhkCompressedMeshShapeData) nifly::NiBlockRef<nifly::bhkCompressedMeshShapeData>;
-%template(BlockRefbhkShape) nifly::NiBlockRef<nifly::bhkShape>;
-%template(BlockRefBSAnimNotes) nifly::NiBlockRef<nifly::BSAnimNotes>;
-%template(BlockRefBSMultiBound) nifly::NiBlockRef<nifly::BSMultiBound>;
-%template(BlockRefBSMultiBoundData) nifly::NiBlockRef<nifly::BSMultiBoundData>;
-%template(BlockRefBSShaderProperty) nifly::NiBlockRef<nifly::BSShaderProperty>;
-%template(BlockRefBSShaderTextureSet) nifly::NiBlockRef<nifly::BSShaderTextureSet>;
-%template(BlockRefBSSkinBoneData) nifly::NiBlockRef<nifly::BSSkinBoneData>;
-%template(BlockRefhkPackedNiTriStripsData) nifly::NiBlockRef<nifly::hkPackedNiTriStripsData>;
-%template(BlockRefNiAlphaProperty) nifly::NiBlockRef<nifly::NiAlphaProperty>;
-%template(BlockRefNiBoneContainer) nifly::NiBlockRef<nifly::NiBoneContainer>;
-%template(BlockRefNiBoolData) nifly::NiBlockRef<nifly::NiBoolData>;
-%template(BlockRefNiBSplineBasisData) nifly::NiBlockRef<nifly::NiBSplineBasisData>;
-%template(BlockRefNiBSplineData) nifly::NiBlockRef<nifly::NiBSplineData>;
-%template(BlockRefNiCollisionObject) nifly::NiBlockRef<nifly::NiCollisionObject>;
-%template(BlockRefNiColorData) nifly::NiBlockRef<nifly::NiColorData>;
-%template(BlockRefNiDefaultAVObjectPalette) nifly::NiBlockRef<nifly::NiDefaultAVObjectPalette>;
-%template(BlockRefNiFloatData) nifly::NiBlockRef<nifly::NiFloatData>;
-%template(BlockRefNiFloatInterpolator) nifly::NiBlockRef<nifly::NiFloatInterpolator>;
-%template(BlockRefNiGeometryData) nifly::NiBlockRef<nifly::NiGeometryData>;
-%template(BlockRefNiInterpController) nifly::NiBlockRef<nifly::NiInterpController>;
-%template(BlockRefNiLODData) nifly::NiBlockRef<nifly::NiLODData>;
-%template(BlockRefNiMorphData) nifly::NiBlockRef<nifly::NiMorphData>;
-%template(BlockRefNiNode) nifly::NiBlockRef<nifly::NiNode>;
-%template(BlockRefNiObject) nifly::NiBlockRef<nifly::NiObject>;
-%template(BlockRefNiPalette) nifly::NiBlockRef<nifly::NiPalette>;
-%template(BlockRefNiPoint3Interpolator) nifly::NiBlockRef<nifly::NiPoint3Interpolator>;
-%template(BlockRefNiPosData) nifly::NiBlockRef<nifly::NiPosData>;
-%template(BlockRefNiProperty) nifly::NiBlockRef<nifly::NiProperty>;
-%template(BlockRefNiPSysCollider) nifly::NiBlockRef<nifly::NiPSysCollider>;
-%template(BlockRefNiPSysData) nifly::NiBlockRef<nifly::NiPSysData>;
-%template(BlockRefNiPSysModifier) nifly::NiBlockRef<nifly::NiPSysModifier>;
-%template(BlockRefNiPSysSpawnModifier) nifly::NiBlockRef<nifly::NiPSysSpawnModifier>;
-%template(BlockRefNiShader) nifly::NiBlockRef<nifly::NiShader>;
-%template(BlockRefNiSkinData) nifly::NiBlockRef<nifly::NiSkinData>;
-%template(BlockRefNiSkinPartition) nifly::NiBlockRef<nifly::NiSkinPartition>;
-%template(BlockRefNiSourceTexture) nifly::NiBlockRef<nifly::NiSourceTexture>;
-%template(BlockRefNiTextKeyExtraData) nifly::NiBlockRef<nifly::NiTextKeyExtraData>;
-%template(BlockRefNiTimeController) nifly::NiBlockRef<nifly::NiTimeController>;
-%template(BlockRefNiTransformData) nifly::NiBlockRef<nifly::NiTransformData>;
-%template(BlockRefNiUVData) nifly::NiBlockRef<nifly::NiUVData>;
-%template(BlockRefTextureRenderData) nifly::NiBlockRef<nifly::TextureRenderData>;
+%template(NiBlockRefArraybhkConvexShape) nifly::NiBlockRefArray<nifly::bhkConvexShape>;
+%template(NiBlockRefArraybhkEntity) nifly::NiBlockRefArray<nifly::bhkEntity>;
+%template(NiBlockRefArraybhkSerializable) nifly::NiBlockRefArray<nifly::bhkSerializable>;
+%template(NiBlockRefArraybhkRigidBody) nifly::NiBlockRefArray<nifly::bhkRigidBody>;
+%template(NiBlockRefArraybhkShape) nifly::NiBlockRefArray<nifly::bhkShape>;
+%template(NiBlockRefArrayBSAnimNote) nifly::NiBlockRefArray<nifly::BSAnimNote>;
+%template(NiBlockRefArrayBSAnimNotes) nifly::NiBlockRefArray<nifly::BSAnimNotes>;
+%template(NiBlockRefArrayBSMasterParticleSystem) nifly::NiBlockRefArray<nifly::BSMasterParticleSystem>;
+%template(NiBlockRefArrayNiAVObject) nifly::NiBlockRefArray<nifly::NiAVObject>;
+%template(NiBlockRefArrayNiControllerManager) nifly::NiBlockRefArray<nifly::NiControllerManager>;
+%template(NiBlockRefArrayNiControllerSequence) nifly::NiBlockRefArray<nifly::NiControllerSequence>;
+%template(NiBlockRefArrayNiDynamicEffect) nifly::NiBlockRefArray<nifly::NiDynamicEffect>;
+%template(NiBlockRefArrayNiExtraData) nifly::NiBlockRefArray<nifly::NiExtraData>;
+%template(NiBlockRefArrayNiNode) nifly::NiBlockRefArray<nifly::NiNode>;
+%template(NiBlockRefArrayNiObject) nifly::NiBlockRefArray<nifly::NiObject>;
+%template(NiBlockRefArrayNiObjectNET) nifly::NiBlockRefArray<nifly::NiObjectNET>;
+%template(NiBlockRefArrayNiParticleSystem) nifly::NiBlockRefArray<nifly::NiParticleSystem>;
+%template(NiBlockRefArrayNiProperty) nifly::NiBlockRefArray<nifly::NiProperty>;
+%template(NiBlockRefArrayNiPSysModifier) nifly::NiBlockRefArray<nifly::NiPSysModifier>;
+%template(NiBlockRefArrayNiPSysColliderManager) nifly::NiBlockRefArray<nifly::NiPSysColliderManager>;
+%template(NiBlockRefArrayNiSourceTexture) nifly::NiBlockRefArray<nifly::NiSourceTexture>;
+%template(NiBlockRefArrayNiTriStripsData) nifly::NiBlockRefArray<nifly::NiTriStripsData>;
 
+%template(NiBlockRefShortArrayBSAnimNote) nifly::NiBlockRefShortArray<nifly::BSAnimNote>;
+%template(NiBlockRefShortArrayBSAnimNotes) nifly::NiBlockRefShortArray<nifly::BSAnimNotes>;
+
+%template() nifly::NiBlockPtr<nifly::bhkEntity>;
+%template() nifly::NiBlockPtr<nifly::BSMasterParticleSystem>;
+%template() nifly::NiBlockPtr<nifly::NiAVObject>;
+%template() nifly::NiBlockPtr<nifly::NiControllerManager>;
+%template() nifly::NiBlockPtr<nifly::NiNode>;
+%template() nifly::NiBlockPtr<nifly::NiObject>;
+%template() nifly::NiBlockPtr<nifly::NiObjectNET>;
+%template() nifly::NiBlockPtr<nifly::NiParticleSystem>;
+%template() nifly::NiBlockPtr<nifly::NiPSysColliderManager>;
+
+%template() nifly::NiBlockPtrArray<nifly::bhkEntity>;
+%template() nifly::NiBlockPtrArray<nifly::bhkRigidBody>;
+%template() nifly::NiBlockPtrArray<nifly::NiAVObject>;
+%template() nifly::NiBlockPtrArray<nifly::NiNode>;
+
+%template() nifly::NiBlockPtrShortArray<nifly::NiAVObject>;
+
+%template(vectorNiBlockPtrArrayNiNode) std::vector<nifly::NiBlockPtrArray<nifly::NiNode>>;
+
+%template(vectorhalf) std::vector<half_float::half>;
+
+%template(vectorAdditionalDataBlock) std::vector<nifly::AdditionalDataBlock>;
+%template(vectorAdditionalDataInfo) std::vector<nifly::AdditionalDataInfo>;
+%template(vectorAVObject) std::vector<nifly::AVObject>;
+%template(vectorbhkCMSDBigTris) std::vector<nifly::bhkCMSDBigTris>;
+%template(vectorbhkCMSDChunk) std::vector<nifly::bhkCMSDChunk>;
+%template(vectorbhkCMSDMaterial) std::vector<bhkCMSDMaterial>;
+%template(vectorbhkCMSDTransform) std::vector<bhkCMSDTransform>;
+%template(vectorBoneLOD) std::vector<nifly::BoneLOD>;
+%template(vectorBoneMatrix) std::vector<BoneMatrix>;
+%template(vectorBonePose) std::vector<nifly::BonePose>;
+%template(vectorBoneIndices) std::vector<nifly::BoneIndices>;
+%template(vectorBoundingSphere) std::vector<BoundingSphere>;
+%template(vectorBoundingVolume) std::vector<nifly::BoundingVolume>;
+%template(vectorBSConnectPoint) std::vector<nifly::BSConnectPoint>;
+%template(vectorBSGeometrySegmentData) std::vector<nifly::BSGeometrySegmentData>;
+%template(vectorBSPackedAdditionalDataBlock) std::vector<nifly::BSPackedAdditionalDataBlock>;
+%template(vectorBSPackedGeomData) std::vector<nifly::BSPackedGeomData>;
+%template(vectorBSPackedGeomDataCombined) std::vector<BSPackedGeomDataCombined>;
+%template(vectorBSPackedGeomObject) std::vector<nifly::BSPackedGeomObject>;
+%template(vectorBSSkinBoneDataBoneData) std::vector<nifly::BSSkinBoneData::BoneData>;
+%template(vectorBSSITSSegment) std::vector<nifly::BSSubIndexTriShape::BSSITSSegment>;
 %template(vectorBSSITSSubSegment) std::vector<nifly::BSSubIndexTriShape::BSSITSSubSegment>;
+%template(vectorBSSITSSubSegmentDataRecord) std::vector<nifly::BSSubIndexTriShape::BSSITSSubSegmentDataRecord>;
+%template(vectorBSTextureArray) std::vector<nifly::BSTextureArray>;
+%template(vectorBSTreadTransform) std::vector<nifly::BSTreadTransform>;
 %template(vectorBSVertexData) std::vector<nifly::BSVertexData>;
+%template(vectorByteColor4) std::vector<ByteColor4>;
 %template(vectorColor4) std::vector<nifly::Color4>;
+%template(vectorConstraintData) std::vector<nifly::ConstraintData>;
+%template(vectorControllerLink) std::vector<nifly::ControllerLink>;
+%template(vectorDecalVectorBlock) std::vector<nifly::DecalVectorBlock>;
+%template(vectorFurniturePosition) std::vector<nifly::FurniturePosition>;
+%template(vectorHavokFilter) std::vector<HavokFilter>;
+%template(vectorhkSubPartData) std::vector<hkSubPartData>;
+%template(vectorhkTriangleData) std::vector<nifly::hkTriangleData>;
+%template(vectorhkTriangleNormalData) std::vector<nifly::hkTriangleNormalData>;
+%template(vectorInterpBlendItem) std::vector<nifly::InterpBlendItem>;
+%template(vectorkd_query_result) std::vector<nifly::kd_query_result>;
+%template(vectorKeyNiStringRef) std::vector<nifly::Key<nifly::NiStringRef>>;
+%template(vectorKeyQuaternion) std::vector<nifly::Key<nifly::Quaternion>>;
+%template(vectorKeyuchar) std::vector<nifly::Key<unsigned char>>;
+%template(vectorLODRange) std::vector<LODRange>;
+%template(vectorMatchGroup) std::vector<nifly::MatchGroup>;
+%template(vectorMaterialInfo) std::vector<nifly::MaterialInfo>;
+%template(vectorMatrix3) std::vector<nifly::Matrix3>;
+%template(vectorMatTransform) std::vector<nifly::MatTransform>;
+%template(vectorMipMapInfo) std::vector<nifly::MipMapInfo>;
+%template(vectorMorph) std::vector<nifly::Morph>;
+%template(vectorMorphWeight) std::vector<nifly::MorphWeight>;
 %template(vectorNifSegmentInfo) std::vector<nifly::NifSegmentInfo>;
+%template(vectorNifSubSegmentInfo) std::vector<nifly::NifSubSegmentInfo>;
+%template(vectorNiNode) std::vector<nifly::NiNode*>;
+%template(vectorNiObject) std::vector<nifly::NiObject*>;
+%template(vectorNiShape) std::vector<nifly::NiShape*>;
+%template(vectorNiSkinDataBoneData) std::vector<nifly::NiSkinData::BoneData>;
+%template(vectorNiString) std::vector<nifly::NiString>;
+%template(vectorNiStringExtraData)  std::vector<nifly::NiStringExtraData*>;
+%template(vectorNiStringRef) std::vector<nifly::NiStringRef>;
+%template(vectorNiStringRefPtr) std::vector<nifly::NiStringRef*>;
+%template(vectorPartitionBlock) std::vector<nifly::NiSkinPartition::PartitionBlock>;
+%template(vectorPartitionInfo) std::vector<nifly::BSDismemberSkinInstance::PartitionInfo>;
+%template(vectorShaderTexDesc) std::vector<nifly::ShaderTexDesc>;
+%template(vectorSkinWeight) std::vector<nifly::SkinWeight>;
 %template(vectorTriangle) std::vector<nifly::Triangle>;
+%template(vector2DVector2) std::vector<std::vector<nifly::Vector2>>;
 %template(vectorVector2) std::vector<nifly::Vector2>;
 %template(vectorVector3) std::vector<nifly::Vector3>;
+%template(vectorVector4) std::vector<nifly::Vector4>;
+%template(vectorVertexWeight) std::vector<nifly::VertexWeight>;
+
+%template(Keyfloat) nifly::Key<float>;
+%template(KeyColor4) nifly::Key<Color4>;
+%template(KeyVector3) nifly::Key<nifly::Vector3>;
+%template(Keyuchar) nifly::Key<unsigned char>;
+%template(KeyNiStringRef) nifly::Key<nifly::NiStringRef>;
+%template(KeyQuaternion) nifly::Key<nifly::Quaternion>;
+
+%template(KeyGroupfloat) nifly::KeyGroup<float>;
+%template(KeyGroupColor4) nifly::KeyGroup<nifly::Color4>;
+%template(KeyGroupVector3) nifly::KeyGroup<nifly::Vector3>;
+%template(KeyGroupuchar) nifly::KeyGroup<unsigned char>;
+%template(KeyGroupNiStringRef) nifly::KeyGroup<nifly::NiStringRef>;
