@@ -1,0 +1,892 @@
+if (objType == bhkAabbPhantom.BlockName)
+{
+    ret = new bhkAabbPhantom(cPtr, owner);
+} else if (objType == bhkBallAndSocketConstraint.BlockName)
+{
+    ret = new bhkBallAndSocketConstraint(cPtr, owner);
+} else if (objType == bhkBallSocketConstraintChain.BlockName)
+{
+    ret = new bhkBallSocketConstraintChain(cPtr, owner);
+} else if (objType == bhkBlendCollisionObject.BlockName)
+{
+    ret = new bhkBlendCollisionObject(cPtr, owner);
+} else if (objType == bhkBlendController.BlockName)
+{
+    ret = new bhkBlendController(cPtr, owner);
+} else if (objType == bhkBoxShape.BlockName)
+{
+    ret = new bhkBoxShape(cPtr, owner);
+} else if (objType == bhkBreakableConstraint.BlockName)
+{
+    ret = new bhkBreakableConstraint(cPtr, owner);
+} else if (objType == bhkCapsuleShape.BlockName)
+{
+    ret = new bhkCapsuleShape(cPtr, owner);
+} else if (objType == bhkCollisionObject.BlockName)
+{
+    ret = new bhkCollisionObject(cPtr, owner);
+} else if (objType == bhkCompressedMeshShape.BlockName)
+{
+    ret = new bhkCompressedMeshShape(cPtr, owner);
+} else if (objType == bhkCompressedMeshShapeData.BlockName)
+{
+    ret = new bhkCompressedMeshShapeData(cPtr, owner);
+} else if (objType == bhkConvexListShape.BlockName)
+{
+    ret = new bhkConvexListShape(cPtr, owner);
+} else if (objType == bhkConvexTransformShape.BlockName)
+{
+    ret = new bhkConvexTransformShape(cPtr, owner);
+} else if (objType == bhkConvexVerticesShape.BlockName)
+{
+    ret = new bhkConvexVerticesShape(cPtr, owner);
+} else if (objType == bhkHingeConstraint.BlockName)
+{
+    ret = new bhkHingeConstraint(cPtr, owner);
+} else if (objType == bhkLimitedHingeConstraint.BlockName)
+{
+    ret = new bhkLimitedHingeConstraint(cPtr, owner);
+} else if (objType == bhkLiquidAction.BlockName)
+{
+    ret = new bhkLiquidAction(cPtr, owner);
+} else if (objType == bhkListShape.BlockName)
+{
+    ret = new bhkListShape(cPtr, owner);
+} else if (objType == bhkMalleableConstraint.BlockName)
+{
+    ret = new bhkMalleableConstraint(cPtr, owner);
+} else if (objType == bhkMoppBvTreeShape.BlockName)
+{
+    ret = new bhkMoppBvTreeShape(cPtr, owner);
+} else if (objType == bhkMultiSphereShape.BlockName)
+{
+    ret = new bhkMultiSphereShape(cPtr, owner);
+} else if (objType == bhkNiCollisionObject.BlockName)
+{
+    ret = new bhkNiCollisionObject(cPtr, owner);
+} else if (objType == bhkNiTriStripsShape.BlockName)
+{
+    ret = new bhkNiTriStripsShape(cPtr, owner);
+} else if (objType == bhkNPCollisionObject.BlockName)
+{
+    ret = new bhkNPCollisionObject(cPtr, owner);
+} else if (objType == bhkOrientHingedBodyAction.BlockName)
+{
+    ret = new bhkOrientHingedBodyAction(cPtr, owner);
+} else if (objType == bhkPackedNiTriStripsShape.BlockName)
+{
+    ret = new bhkPackedNiTriStripsShape(cPtr, owner);
+} else if (objType == bhkPCollisionObject.BlockName)
+{
+    ret = new bhkPCollisionObject(cPtr, owner);
+} else if (objType == bhkPhysicsSystem.BlockName)
+{
+    ret = new bhkPhysicsSystem(cPtr, owner);
+} else if (objType == bhkPlaneShape.BlockName)
+{
+    ret = new bhkPlaneShape(cPtr, owner);
+} else if (objType == bhkPoseArray.BlockName)
+{
+    ret = new bhkPoseArray(cPtr, owner);
+} else if (objType == bhkPrismaticConstraint.BlockName)
+{
+    ret = new bhkPrismaticConstraint(cPtr, owner);
+} else if (objType == bhkRagdollConstraint.BlockName)
+{
+    ret = new bhkRagdollConstraint(cPtr, owner);
+} else if (objType == bhkRagdollSystem.BlockName)
+{
+    ret = new bhkRagdollSystem(cPtr, owner);
+} else if (objType == bhkRagdollTemplate.BlockName)
+{
+    ret = new bhkRagdollTemplate(cPtr, owner);
+} else if (objType == bhkRagdollTemplateData.BlockName)
+{
+    ret = new bhkRagdollTemplateData(cPtr, owner);
+} else if (objType == bhkRigidBody.BlockName)
+{
+    ret = new bhkRigidBody(cPtr, owner);
+} else if (objType == bhkRigidBodyT.BlockName)
+{
+    ret = new bhkRigidBodyT(cPtr, owner);
+} else if (objType == bhkSimpleShapePhantom.BlockName)
+{
+    ret = new bhkSimpleShapePhantom(cPtr, owner);
+} else if (objType == bhkSPCollisionObject.BlockName)
+{
+    ret = new bhkSPCollisionObject(cPtr, owner);
+} else if (objType == bhkSphereShape.BlockName)
+{
+    ret = new bhkSphereShape(cPtr, owner);
+} else if (objType == bhkStiffSpringConstraint.BlockName)
+{
+    ret = new bhkStiffSpringConstraint(cPtr, owner);
+} else if (objType == bhkTransformShape.BlockName)
+{
+    ret = new bhkTransformShape(cPtr, owner);
+} else if (objType == BSAnimNote.BlockName)
+{
+    ret = new BSAnimNote(cPtr, owner);
+} else if (objType == BSAnimNotes.BlockName)
+{
+    ret = new BSAnimNotes(cPtr, owner);
+} else if (objType == BSBehaviorGraphExtraData.BlockName)
+{
+    ret = new BSBehaviorGraphExtraData(cPtr, owner);
+} else if (objType == BSBlastNode.BlockName)
+{
+    ret = new BSBlastNode(cPtr, owner);
+} else if (objType == BSBoneLODExtraData.BlockName)
+{
+    ret = new BSBoneLODExtraData(cPtr, owner);
+} else if (objType == BSBound.BlockName)
+{
+    ret = new BSBound(cPtr, owner);
+} else if (objType == BSClothExtraData.BlockName)
+{
+    ret = new BSClothExtraData(cPtr, owner);
+} else if (objType == BSConnectPointChildren.BlockName)
+{
+    ret = new BSConnectPointChildren(cPtr, owner);
+} else if (objType == BSConnectPointParents.BlockName)
+{
+    ret = new BSConnectPointParents(cPtr, owner);
+} else if (objType == BSDamageStage.BlockName)
+{
+    ret = new BSDamageStage(cPtr, owner);
+} else if (objType == BSDebrisNode.BlockName)
+{
+    ret = new BSDebrisNode(cPtr, owner);
+} else if (objType == BSDecalPlacementVectorExtraData.BlockName)
+{
+    ret = new BSDecalPlacementVectorExtraData(cPtr, owner);
+} else if (objType == BSDismemberSkinInstance.BlockName)
+{
+    ret = new BSDismemberSkinInstance(cPtr, owner);
+} else if (objType == BSDistantObjectLargeRefExtraData.BlockName)
+{
+    ret = new BSDistantObjectLargeRefExtraData(cPtr, owner);
+} else if (objType == BSDistantTreeShaderProperty.BlockName)
+{
+    ret = new BSDistantTreeShaderProperty(cPtr, owner);
+} else if (objType == BSDynamicTriShape.BlockName)
+{
+    ret = new BSDynamicTriShape(cPtr, owner);
+} else if (objType == BSEffectShaderProperty.BlockName)
+{
+    ret = new BSEffectShaderProperty(cPtr, owner);
+} else if (objType == BSEffectShaderPropertyColorController.BlockName)
+{
+    ret = new BSEffectShaderPropertyColorController(cPtr, owner);
+} else if (objType == BSEffectShaderPropertyFloatController.BlockName)
+{
+    ret = new BSEffectShaderPropertyFloatController(cPtr, owner);
+} else if (objType == BSEyeCenterExtraData.BlockName)
+{
+    ret = new BSEyeCenterExtraData(cPtr, owner);
+} else if (objType == BSFadeNode.BlockName)
+{
+    ret = new BSFadeNode(cPtr, owner);
+} else if (objType == BSFrustumFOVController.BlockName)
+{
+    ret = new BSFrustumFOVController(cPtr, owner);
+} else if (objType == BSFurnitureMarker.BlockName)
+{
+    ret = new BSFurnitureMarker(cPtr, owner);
+} else if (objType == BSFurnitureMarkerNode.BlockName)
+{
+    ret = new BSFurnitureMarkerNode(cPtr, owner);
+} else if (objType == BSInvMarker.BlockName)
+{
+    ret = new BSInvMarker(cPtr, owner);
+} else if (objType == BSLagBoneController.BlockName)
+{
+    ret = new BSLagBoneController(cPtr, owner);
+} else if (objType == BSLeafAnimNode.BlockName)
+{
+    ret = new BSLeafAnimNode(cPtr, owner);
+} else if (objType == BSLightingShaderProperty.BlockName)
+{
+    ret = new BSLightingShaderProperty(cPtr, owner);
+} else if (objType == BSLightingShaderPropertyColorController.BlockName)
+{
+    ret = new BSLightingShaderPropertyColorController(cPtr, owner);
+} else if (objType == BSLightingShaderPropertyFloatController.BlockName)
+{
+    ret = new BSLightingShaderPropertyFloatController(cPtr, owner);
+} else if (objType == BSLightingShaderPropertyUShortController.BlockName)
+{
+    ret = new BSLightingShaderPropertyUShortController(cPtr, owner);
+} else if (objType == BSLODTriShape.BlockName)
+{
+    ret = new BSLODTriShape(cPtr, owner);
+} else if (objType == BSMasterParticleSystem.BlockName)
+{
+    ret = new BSMasterParticleSystem(cPtr, owner);
+} else if (objType == BSMaterialEmittanceMultController.BlockName)
+{
+    ret = new BSMaterialEmittanceMultController(cPtr, owner);
+} else if (objType == BSMeshLODTriShape.BlockName)
+{
+    ret = new BSMeshLODTriShape(cPtr, owner);
+} else if (objType == BSMultiBound.BlockName)
+{
+    ret = new BSMultiBound(cPtr, owner);
+} else if (objType == BSMultiBoundAABB.BlockName)
+{
+    ret = new BSMultiBoundAABB(cPtr, owner);
+} else if (objType == BSMultiBoundNode.BlockName)
+{
+    ret = new BSMultiBoundNode(cPtr, owner);
+} else if (objType == BSMultiBoundOBB.BlockName)
+{
+    ret = new BSMultiBoundOBB(cPtr, owner);
+} else if (objType == BSMultiBoundSphere.BlockName)
+{
+    ret = new BSMultiBoundSphere(cPtr, owner);
+} else if (objType == BSNiAlphaPropertyTestRefController.BlockName)
+{
+    ret = new BSNiAlphaPropertyTestRefController(cPtr, owner);
+} else if (objType == BSOrderedNode.BlockName)
+{
+    ret = new BSOrderedNode(cPtr, owner);
+} else if (objType == BSPackedAdditionalGeometryData.BlockName)
+{
+    ret = new BSPackedAdditionalGeometryData(cPtr, owner);
+} else if (objType == BSPackedCombinedSharedGeomDataExtra.BlockName)
+{
+    ret = new BSPackedCombinedSharedGeomDataExtra(cPtr, owner);
+} else if (objType == BSParentVelocityModifier.BlockName)
+{
+    ret = new BSParentVelocityModifier(cPtr, owner);
+} else if (objType == BSPositionData.BlockName)
+{
+    ret = new BSPositionData(cPtr, owner);
+} else if (objType == BSProceduralLightningController.BlockName)
+{
+    ret = new BSProceduralLightningController(cPtr, owner);
+} else if (objType == BSPSysArrayEmitter.BlockName)
+{
+    ret = new BSPSysArrayEmitter(cPtr, owner);
+} else if (objType == BSPSysHavokUpdateModifier.BlockName)
+{
+    ret = new BSPSysHavokUpdateModifier(cPtr, owner);
+} else if (objType == BSPSysInheritVelocityModifier.BlockName)
+{
+    ret = new BSPSysInheritVelocityModifier(cPtr, owner);
+} else if (objType == BSPSysLODModifier.BlockName)
+{
+    ret = new BSPSysLODModifier(cPtr, owner);
+} else if (objType == BSPSysMultiTargetEmitterCtlr.BlockName)
+{
+    ret = new BSPSysMultiTargetEmitterCtlr(cPtr, owner);
+} else if (objType == BSPSysRecycleBoundModifier.BlockName)
+{
+    ret = new BSPSysRecycleBoundModifier(cPtr, owner);
+} else if (objType == BSPSysScaleModifier.BlockName)
+{
+    ret = new BSPSysScaleModifier(cPtr, owner);
+} else if (objType == BSPSysSimpleColorModifier.BlockName)
+{
+    ret = new BSPSysSimpleColorModifier(cPtr, owner);
+} else if (objType == BSPSysStripUpdateModifier.BlockName)
+{
+    ret = new BSPSysStripUpdateModifier(cPtr, owner);
+} else if (objType == BSPSysSubTexModifier.BlockName)
+{
+    ret = new BSPSysSubTexModifier(cPtr, owner);
+} else if (objType == BSRangeNode.BlockName)
+{
+    ret = new BSRangeNode(cPtr, owner);
+} else if (objType == BSRefractionFirePeriodController.BlockName)
+{
+    ret = new BSRefractionFirePeriodController(cPtr, owner);
+} else if (objType == BSRefractionStrengthController.BlockName)
+{
+    ret = new BSRefractionStrengthController(cPtr, owner);
+} else if (objType == BSRotAccumTransfInterpolator.BlockName)
+{
+    ret = new BSRotAccumTransfInterpolator(cPtr, owner);
+} else if (objType == BSSegmentedTriShape.BlockName)
+{
+    ret = new BSSegmentedTriShape(cPtr, owner);
+} else if (objType == BSShaderNoLightingProperty.BlockName)
+{
+    ret = new BSShaderNoLightingProperty(cPtr, owner);
+} else if (objType == BSShaderPPLightingProperty.BlockName)
+{
+    ret = new BSShaderPPLightingProperty(cPtr, owner);
+} else if (objType == BSShaderTextureSet.BlockName)
+{
+    ret = new BSShaderTextureSet(cPtr, owner);
+} else if (objType == BSSkinBoneData.BlockName)
+{
+    ret = new BSSkinBoneData(cPtr, owner);
+} else if (objType == BSSkinInstance.BlockName)
+{
+    ret = new BSSkinInstance(cPtr, owner);
+} else if (objType == BSSkyShaderProperty.BlockName)
+{
+    ret = new BSSkyShaderProperty(cPtr, owner);
+} else if (objType == BSStripParticleSystem.BlockName)
+{
+    ret = new BSStripParticleSystem(cPtr, owner);
+} else if (objType == BSStripPSysData.BlockName)
+{
+    ret = new BSStripPSysData(cPtr, owner);
+} else if (objType == BSSubIndexTriShape.BlockName)
+{
+    ret = new BSSubIndexTriShape(cPtr, owner);
+} else if (objType == BSTreadTransfInterpolator.BlockName)
+{
+    ret = new BSTreadTransfInterpolator(cPtr, owner);
+} else if (objType == BSTreeNode.BlockName)
+{
+    ret = new BSTreeNode(cPtr, owner);
+} else if (objType == BSTriShape.BlockName)
+{
+    ret = new BSTriShape(cPtr, owner);
+} else if (objType == BSValueNode.BlockName)
+{
+    ret = new BSValueNode(cPtr, owner);
+} else if (objType == BSWArray.BlockName)
+{
+    ret = new BSWArray(cPtr, owner);
+} else if (objType == BSWaterShaderProperty.BlockName)
+{
+    ret = new BSWaterShaderProperty(cPtr, owner);
+} else if (objType == BSWindModifier.BlockName)
+{
+    ret = new BSWindModifier(cPtr, owner);
+} else if (objType == BSXFlags.BlockName)
+{
+    ret = new BSXFlags(cPtr, owner);
+} else if (objType == DistantLODShaderProperty.BlockName)
+{
+    ret = new DistantLODShaderProperty(cPtr, owner);
+} else if (objType == HairShaderProperty.BlockName)
+{
+    ret = new HairShaderProperty(cPtr, owner);
+} else if (objType == hkPackedNiTriStripsData.BlockName)
+{
+    ret = new hkPackedNiTriStripsData(cPtr, owner);
+} else if (objType == Lighting30ShaderProperty.BlockName)
+{
+    ret = new Lighting30ShaderProperty(cPtr, owner);
+} else if (objType == NiAdditionalGeometryData.BlockName)
+{
+    ret = new NiAdditionalGeometryData(cPtr, owner);
+} else if (objType == NiAlphaController.BlockName)
+{
+    ret = new NiAlphaController(cPtr, owner);
+} else if (objType == NiAlphaProperty.BlockName)
+{
+    ret = new NiAlphaProperty(cPtr, owner);
+} else if (objType == NiAmbientLight.BlockName)
+{
+    ret = new NiAmbientLight(cPtr, owner);
+} else if (objType == NiAutoNormalParticles.BlockName)
+{
+    ret = new NiAutoNormalParticles(cPtr, owner);
+} else if (objType == NiAutoNormalParticlesData.BlockName)
+{
+    ret = new NiAutoNormalParticlesData(cPtr, owner);
+} else if (objType == NiBillboardNode.BlockName)
+{
+    ret = new NiBillboardNode(cPtr, owner);
+} else if (objType == NiBinaryExtraData.BlockName)
+{
+    ret = new NiBinaryExtraData(cPtr, owner);
+} else if (objType == NiBlendBoolInterpolator.BlockName)
+{
+    ret = new NiBlendBoolInterpolator(cPtr, owner);
+} else if (objType == NiBlendFloatInterpolator.BlockName)
+{
+    ret = new NiBlendFloatInterpolator(cPtr, owner);
+} else if (objType == NiBlendPoint3Interpolator.BlockName)
+{
+    ret = new NiBlendPoint3Interpolator(cPtr, owner);
+} else if (objType == NiBlendTransformInterpolator.BlockName)
+{
+    ret = new NiBlendTransformInterpolator(cPtr, owner);
+} else if (objType == NiBone.BlockName)
+{
+    ret = new NiBone(cPtr, owner);
+} else if (objType == NiBoneLODController.BlockName)
+{
+    ret = new NiBoneLODController(cPtr, owner);
+} else if (objType == NiBoolData.BlockName)
+{
+    ret = new NiBoolData(cPtr, owner);
+} else if (objType == NiBooleanExtraData.BlockName)
+{
+    ret = new NiBooleanExtraData(cPtr, owner);
+} else if (objType == NiBoolInterpolator.BlockName)
+{
+    ret = new NiBoolInterpolator(cPtr, owner);
+} else if (objType == NiBoolTimelineInterpolator.BlockName)
+{
+    ret = new NiBoolTimelineInterpolator(cPtr, owner);
+} else if (objType == NiBSBoneLODController.BlockName)
+{
+    ret = new NiBSBoneLODController(cPtr, owner);
+} else if (objType == NiBSplineBasisData.BlockName)
+{
+    ret = new NiBSplineBasisData(cPtr, owner);
+} else if (objType == NiBSplineCompFloatInterpolator.BlockName)
+{
+    ret = new NiBSplineCompFloatInterpolator(cPtr, owner);
+} else if (objType == NiBSplineCompPoint3Interpolator.BlockName)
+{
+    ret = new NiBSplineCompPoint3Interpolator(cPtr, owner);
+} else if (objType == NiBSplineCompTransformInterpolator.BlockName)
+{
+    ret = new NiBSplineCompTransformInterpolator(cPtr, owner);
+} else if (objType == NiBSplineData.BlockName)
+{
+    ret = new NiBSplineData(cPtr, owner);
+} else if (objType == NiBSplineTransformInterpolator.BlockName)
+{
+    ret = new NiBSplineTransformInterpolator(cPtr, owner);
+} else if (objType == NiCamera.BlockName)
+{
+    ret = new NiCamera(cPtr, owner);
+} else if (objType == NiCollisionData.BlockName)
+{
+    ret = new NiCollisionData(cPtr, owner);
+} else if (objType == NiCollisionObject.BlockName)
+{
+    ret = new NiCollisionObject(cPtr, owner);
+} else if (objType == NiColorData.BlockName)
+{
+    ret = new NiColorData(cPtr, owner);
+} else if (objType == NiColorExtraData.BlockName)
+{
+    ret = new NiColorExtraData(cPtr, owner);
+} else if (objType == NiControllerManager.BlockName)
+{
+    ret = new NiControllerManager(cPtr, owner);
+} else if (objType == NiControllerSequence.BlockName)
+{
+    ret = new NiControllerSequence(cPtr, owner);
+} else if (objType == NiDefaultAVObjectPalette.BlockName)
+{
+    ret = new NiDefaultAVObjectPalette(cPtr, owner);
+} else if (objType == NiDirectionalLight.BlockName)
+{
+    ret = new NiDirectionalLight(cPtr, owner);
+} else if (objType == NiDitherProperty.BlockName)
+{
+    ret = new NiDitherProperty(cPtr, owner);
+} else if (objType == NiFlipController.BlockName)
+{
+    ret = new NiFlipController(cPtr, owner);
+} else if (objType == NiFloatData.BlockName)
+{
+    ret = new NiFloatData(cPtr, owner);
+} else if (objType == NiFloatExtraData.BlockName)
+{
+    ret = new NiFloatExtraData(cPtr, owner);
+} else if (objType == NiFloatExtraDataController.BlockName)
+{
+    ret = new NiFloatExtraDataController(cPtr, owner);
+} else if (objType == NiFloatInterpolator.BlockName)
+{
+    ret = new NiFloatInterpolator(cPtr, owner);
+} else if (objType == NiFloatsExtraData.BlockName)
+{
+    ret = new NiFloatsExtraData(cPtr, owner);
+} else if (objType == NiFogProperty.BlockName)
+{
+    ret = new NiFogProperty(cPtr, owner);
+} else if (objType == NiGeomMorpherController.BlockName)
+{
+    ret = new NiGeomMorpherController(cPtr, owner);
+} else if (objType == NiHeader.BlockName)
+{
+    ret = new NiHeader(cPtr, owner);
+} else if (objType == NiIntegerExtraData.BlockName)
+{
+    ret = new NiIntegerExtraData(cPtr, owner);
+} else if (objType == NiIntegersExtraData.BlockName)
+{
+    ret = new NiIntegersExtraData(cPtr, owner);
+} else if (objType == NiKeyframeController.BlockName)
+{
+    ret = new NiKeyframeController(cPtr, owner);
+} else if (objType == NiKeyframeData.BlockName)
+{
+    ret = new NiKeyframeData(cPtr, owner);
+} else if (objType == NiLightColorController.BlockName)
+{
+    ret = new NiLightColorController(cPtr, owner);
+} else if (objType == NiLightDimmerController.BlockName)
+{
+    ret = new NiLightDimmerController(cPtr, owner);
+} else if (objType == NiLightRadiusController.BlockName)
+{
+    ret = new NiLightRadiusController(cPtr, owner);
+} else if (objType == NiLines.BlockName)
+{
+    ret = new NiLines(cPtr, owner);
+} else if (objType == NiLinesData.BlockName)
+{
+    ret = new NiLinesData(cPtr, owner);
+} else if (objType == NiLODNode.BlockName)
+{
+    ret = new NiLODNode(cPtr, owner);
+} else if (objType == NiLookAtController.BlockName)
+{
+    ret = new NiLookAtController(cPtr, owner);
+} else if (objType == NiLookAtInterpolator.BlockName)
+{
+    ret = new NiLookAtInterpolator(cPtr, owner);
+} else if (objType == NiMaterialColorController.BlockName)
+{
+    ret = new NiMaterialColorController(cPtr, owner);
+} else if (objType == NiMaterialProperty.BlockName)
+{
+    ret = new NiMaterialProperty(cPtr, owner);
+} else if (objType == NiMeshParticleSystem.BlockName)
+{
+    ret = new NiMeshParticleSystem(cPtr, owner);
+} else if (objType == NiMeshPSysData.BlockName)
+{
+    ret = new NiMeshPSysData(cPtr, owner);
+} else if (objType == NiMorphData.BlockName)
+{
+    ret = new NiMorphData(cPtr, owner);
+} else if (objType == NiMultiTargetTransformController.BlockName)
+{
+    ret = new NiMultiTargetTransformController(cPtr, owner);
+} else if (objType == NiNode.BlockName)
+{
+    ret = new NiNode(cPtr, owner);
+} else if (objType == NiObject.BlockName)
+{
+    ret = new NiObject(cPtr, owner);
+} else if (objType == NiPalette.BlockName)
+{
+    ret = new NiPalette(cPtr, owner);
+} else if (objType == NiParticleMeshes.BlockName)
+{
+    ret = new NiParticleMeshes(cPtr, owner);
+} else if (objType == NiParticleMeshesData.BlockName)
+{
+    ret = new NiParticleMeshesData(cPtr, owner);
+} else if (objType == NiParticles.BlockName)
+{
+    ret = new NiParticles(cPtr, owner);
+} else if (objType == NiParticlesData.BlockName)
+{
+    ret = new NiParticlesData(cPtr, owner);
+} else if (objType == NiParticleSystem.BlockName)
+{
+    ret = new NiParticleSystem(cPtr, owner);
+} else if (objType == NiPathController.BlockName)
+{
+    ret = new NiPathController(cPtr, owner);
+} else if (objType == NiPathInterpolator.BlockName)
+{
+    ret = new NiPathInterpolator(cPtr, owner);
+} else if (objType == NiPersistentSrcTextureRendererData.BlockName)
+{
+    ret = new NiPersistentSrcTextureRendererData(cPtr, owner);
+} else if (objType == NiPixelData.BlockName)
+{
+    ret = new NiPixelData(cPtr, owner);
+} else if (objType == NiPoint3Interpolator.BlockName)
+{
+    ret = new NiPoint3Interpolator(cPtr, owner);
+} else if (objType == NiPointLight.BlockName)
+{
+    ret = new NiPointLight(cPtr, owner);
+} else if (objType == NiPosData.BlockName)
+{
+    ret = new NiPosData(cPtr, owner);
+} else if (objType == NiPSysAgeDeathModifier.BlockName)
+{
+    ret = new NiPSysAgeDeathModifier(cPtr, owner);
+} else if (objType == NiPSysAirFieldAirFrictionCtlr.BlockName)
+{
+    ret = new NiPSysAirFieldAirFrictionCtlr(cPtr, owner);
+} else if (objType == NiPSysAirFieldInheritVelocityCtlr.BlockName)
+{
+    ret = new NiPSysAirFieldInheritVelocityCtlr(cPtr, owner);
+} else if (objType == NiPSysAirFieldModifier.BlockName)
+{
+    ret = new NiPSysAirFieldModifier(cPtr, owner);
+} else if (objType == NiPSysAirFieldSpreadCtlr.BlockName)
+{
+    ret = new NiPSysAirFieldSpreadCtlr(cPtr, owner);
+} else if (objType == NiPSysBombModifier.BlockName)
+{
+    ret = new NiPSysBombModifier(cPtr, owner);
+} else if (objType == NiPSysBoundUpdateModifier.BlockName)
+{
+    ret = new NiPSysBoundUpdateModifier(cPtr, owner);
+} else if (objType == NiPSysBoxEmitter.BlockName)
+{
+    ret = new NiPSysBoxEmitter(cPtr, owner);
+} else if (objType == NiPSysColliderManager.BlockName)
+{
+    ret = new NiPSysColliderManager(cPtr, owner);
+} else if (objType == NiPSysColorModifier.BlockName)
+{
+    ret = new NiPSysColorModifier(cPtr, owner);
+} else if (objType == NiPSysCylinderEmitter.BlockName)
+{
+    ret = new NiPSysCylinderEmitter(cPtr, owner);
+} else if (objType == NiPSysData.BlockName)
+{
+    ret = new NiPSysData(cPtr, owner);
+} else if (objType == NiPSysDragFieldModifier.BlockName)
+{
+    ret = new NiPSysDragFieldModifier(cPtr, owner);
+} else if (objType == NiPSysDragModifier.BlockName)
+{
+    ret = new NiPSysDragModifier(cPtr, owner);
+} else if (objType == NiPSysEmitterCtlr.BlockName)
+{
+    ret = new NiPSysEmitterCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterCtlrData.BlockName)
+{
+    ret = new NiPSysEmitterCtlrData(cPtr, owner);
+} else if (objType == NiPSysEmitterDeclinationCtlr.BlockName)
+{
+    ret = new NiPSysEmitterDeclinationCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterDeclinationVarCtlr.BlockName)
+{
+    ret = new NiPSysEmitterDeclinationVarCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterInitialRadiusCtlr.BlockName)
+{
+    ret = new NiPSysEmitterInitialRadiusCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterLifeSpanCtlr.BlockName)
+{
+    ret = new NiPSysEmitterLifeSpanCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterPlanarAngleCtlr.BlockName)
+{
+    ret = new NiPSysEmitterPlanarAngleCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterPlanarAngleVarCtlr.BlockName)
+{
+    ret = new NiPSysEmitterPlanarAngleVarCtlr(cPtr, owner);
+} else if (objType == NiPSysEmitterSpeedCtlr.BlockName)
+{
+    ret = new NiPSysEmitterSpeedCtlr(cPtr, owner);
+} else if (objType == NiPSysFieldAttenuationCtlr.BlockName)
+{
+    ret = new NiPSysFieldAttenuationCtlr(cPtr, owner);
+} else if (objType == NiPSysFieldMagnitudeCtlr.BlockName)
+{
+    ret = new NiPSysFieldMagnitudeCtlr(cPtr, owner);
+} else if (objType == NiPSysFieldMaxDistanceCtlr.BlockName)
+{
+    ret = new NiPSysFieldMaxDistanceCtlr(cPtr, owner);
+} else if (objType == NiPSysGravityFieldModifier.BlockName)
+{
+    ret = new NiPSysGravityFieldModifier(cPtr, owner);
+} else if (objType == NiPSysGravityModifier.BlockName)
+{
+    ret = new NiPSysGravityModifier(cPtr, owner);
+} else if (objType == NiPSysGravityStrengthCtlr.BlockName)
+{
+    ret = new NiPSysGravityStrengthCtlr(cPtr, owner);
+} else if (objType == NiPSysGrowFadeModifier.BlockName)
+{
+    ret = new NiPSysGrowFadeModifier(cPtr, owner);
+} else if (objType == NiPSysInitialRotAngleCtlr.BlockName)
+{
+    ret = new NiPSysInitialRotAngleCtlr(cPtr, owner);
+} else if (objType == NiPSysInitialRotAngleVarCtlr.BlockName)
+{
+    ret = new NiPSysInitialRotAngleVarCtlr(cPtr, owner);
+} else if (objType == NiPSysInitialRotSpeedCtlr.BlockName)
+{
+    ret = new NiPSysInitialRotSpeedCtlr(cPtr, owner);
+} else if (objType == NiPSysInitialRotSpeedVarCtlr.BlockName)
+{
+    ret = new NiPSysInitialRotSpeedVarCtlr(cPtr, owner);
+} else if (objType == NiPSysMeshEmitter.BlockName)
+{
+    ret = new NiPSysMeshEmitter(cPtr, owner);
+} else if (objType == NiPSysMeshUpdateModifier.BlockName)
+{
+    ret = new NiPSysMeshUpdateModifier(cPtr, owner);
+} else if (objType == NiPSysModifierActiveCtlr.BlockName)
+{
+    ret = new NiPSysModifierActiveCtlr(cPtr, owner);
+} else if (objType == NiPSysPlanarCollider.BlockName)
+{
+    ret = new NiPSysPlanarCollider(cPtr, owner);
+} else if (objType == NiPSysPositionModifier.BlockName)
+{
+    ret = new NiPSysPositionModifier(cPtr, owner);
+} else if (objType == NiPSysRadialFieldModifier.BlockName)
+{
+    ret = new NiPSysRadialFieldModifier(cPtr, owner);
+} else if (objType == NiPSysResetOnLoopCtlr.BlockName)
+{
+    ret = new NiPSysResetOnLoopCtlr(cPtr, owner);
+} else if (objType == NiPSysRotationModifier.BlockName)
+{
+    ret = new NiPSysRotationModifier(cPtr, owner);
+} else if (objType == NiPSysSpawnModifier.BlockName)
+{
+    ret = new NiPSysSpawnModifier(cPtr, owner);
+} else if (objType == NiPSysSphereEmitter.BlockName)
+{
+    ret = new NiPSysSphereEmitter(cPtr, owner);
+} else if (objType == NiPSysSphericalCollider.BlockName)
+{
+    ret = new NiPSysSphericalCollider(cPtr, owner);
+} else if (objType == NiPSysTurbulenceFieldModifier.BlockName)
+{
+    ret = new NiPSysTurbulenceFieldModifier(cPtr, owner);
+} else if (objType == NiPSysUpdateCtlr.BlockName)
+{
+    ret = new NiPSysUpdateCtlr(cPtr, owner);
+} else if (objType == NiPSysVortexFieldModifier.BlockName)
+{
+    ret = new NiPSysVortexFieldModifier(cPtr, owner);
+} else if (objType == NiRangeLODData.BlockName)
+{
+    ret = new NiRangeLODData(cPtr, owner);
+} else if (objType == NiRollController.BlockName)
+{
+    ret = new NiRollController(cPtr, owner);
+} else if (objType == NiRotatingParticles.BlockName)
+{
+    ret = new NiRotatingParticles(cPtr, owner);
+} else if (objType == NiRotatingParticlesData.BlockName)
+{
+    ret = new NiRotatingParticlesData(cPtr, owner);
+} else if (objType == NiScreenElements.BlockName)
+{
+    ret = new NiScreenElements(cPtr, owner);
+} else if (objType == NiScreenElementsData.BlockName)
+{
+    ret = new NiScreenElementsData(cPtr, owner);
+} else if (objType == NiScreenLODData.BlockName)
+{
+    ret = new NiScreenLODData(cPtr, owner);
+} else if (objType == NiSequence.BlockName)
+{
+    ret = new NiSequence(cPtr, owner);
+} else if (objType == NiSequenceStreamHelper.BlockName)
+{
+    ret = new NiSequenceStreamHelper(cPtr, owner);
+} else if (objType == NiShadeProperty.BlockName)
+{
+    ret = new NiShadeProperty(cPtr, owner);
+} else if (objType == NiSkinData.BlockName)
+{
+    ret = new NiSkinData(cPtr, owner);
+} else if (objType == NiSkinInstance.BlockName)
+{
+    ret = new NiSkinInstance(cPtr, owner);
+} else if (objType == NiSkinPartition.BlockName)
+{
+    ret = new NiSkinPartition(cPtr, owner);
+} else if (objType == NiSortAdjustNode.BlockName)
+{
+    ret = new NiSortAdjustNode(cPtr, owner);
+} else if (objType == NiSourceCubeMap.BlockName)
+{
+    ret = new NiSourceCubeMap(cPtr, owner);
+} else if (objType == NiSourceTexture.BlockName)
+{
+    ret = new NiSourceTexture(cPtr, owner);
+} else if (objType == NiSpecularProperty.BlockName)
+{
+    ret = new NiSpecularProperty(cPtr, owner);
+} else if (objType == NiSpotLight.BlockName)
+{
+    ret = new NiSpotLight(cPtr, owner);
+} else if (objType == NiStencilProperty.BlockName)
+{
+    ret = new NiStencilProperty(cPtr, owner);
+} else if (objType == NiStringExtraData.BlockName)
+{
+    ret = new NiStringExtraData(cPtr, owner);
+} else if (objType == NiStringPalette.BlockName)
+{
+    ret = new NiStringPalette(cPtr, owner);
+} else if (objType == NiStringsExtraData.BlockName)
+{
+    ret = new NiStringsExtraData(cPtr, owner);
+} else if (objType == NiSwitchNode.BlockName)
+{
+    ret = new NiSwitchNode(cPtr, owner);
+} else if (objType == NiTextKeyExtraData.BlockName)
+{
+    ret = new NiTextKeyExtraData(cPtr, owner);
+} else if (objType == NiTextureEffect.BlockName)
+{
+    ret = new NiTextureEffect(cPtr, owner);
+} else if (objType == NiTextureTransformController.BlockName)
+{
+    ret = new NiTextureTransformController(cPtr, owner);
+} else if (objType == NiTexturingProperty.BlockName)
+{
+    ret = new NiTexturingProperty(cPtr, owner);
+} else if (objType == NiTransformController.BlockName)
+{
+    ret = new NiTransformController(cPtr, owner);
+} else if (objType == NiTransformData.BlockName)
+{
+    ret = new NiTransformData(cPtr, owner);
+} else if (objType == NiTransformInterpolator.BlockName)
+{
+    ret = new NiTransformInterpolator(cPtr, owner);
+} else if (objType == NiTriShape.BlockName)
+{
+    ret = new NiTriShape(cPtr, owner);
+} else if (objType == NiTriShapeData.BlockName)
+{
+    ret = new NiTriShapeData(cPtr, owner);
+} else if (objType == NiTriStrips.BlockName)
+{
+    ret = new NiTriStrips(cPtr, owner);
+} else if (objType == NiTriStripsData.BlockName)
+{
+    ret = new NiTriStripsData(cPtr, owner);
+} else if (objType == NiUVController.BlockName)
+{
+    ret = new NiUVController(cPtr, owner);
+} else if (objType == NiUVData.BlockName)
+{
+    ret = new NiUVData(cPtr, owner);
+} else if (objType == NiVectorExtraData.BlockName)
+{
+    ret = new NiVectorExtraData(cPtr, owner);
+} else if (objType == NiVertexColorProperty.BlockName)
+{
+    ret = new NiVertexColorProperty(cPtr, owner);
+} else if (objType == NiVisController.BlockName)
+{
+    ret = new NiVisController(cPtr, owner);
+} else if (objType == NiVisData.BlockName)
+{
+    ret = new NiVisData(cPtr, owner);
+} else if (objType == NiWireframeProperty.BlockName)
+{
+    ret = new NiWireframeProperty(cPtr, owner);
+} else if (objType == NiZBufferProperty.BlockName)
+{
+    ret = new NiZBufferProperty(cPtr, owner);
+} else if (objType == SkyShaderProperty.BlockName)
+{
+    ret = new SkyShaderProperty(cPtr, owner);
+} else if (objType == TallGrassShaderProperty.BlockName)
+{
+    ret = new TallGrassShaderProperty(cPtr, owner);
+} else if (objType == TileShaderProperty.BlockName)
+{
+    ret = new TileShaderProperty(cPtr, owner);
+} else if (objType == VolumetricFogShaderProperty.BlockName)
+{
+    ret = new VolumetricFogShaderProperty(cPtr, owner);
+} else if (objType == WaterShaderProperty.BlockName)
+{
+    ret = new WaterShaderProperty(cPtr, owner);
+} else 

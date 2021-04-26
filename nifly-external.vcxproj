@@ -70,6 +70,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -143,7 +149,8 @@ copy "$(OutDir)\$(ProjectName).pdb" "$(SolutionDir)"
       <Message>Copy unmanaged dll to root directory...</Message>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>if exist $(ProjectDir)swig\$(ProjectName)_wrap.cxx del $(ProjectDir)swig\$(ProjectName)_wrap.cxx</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -161,7 +168,8 @@ copy "$(OutDir)\$(ProjectName).dll" "$(SolutionDir)"
       <Message>Copy unmanaged dll to root directory...</Message>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>touch $(ProjectDir)swig\$(ProjectName).i</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
