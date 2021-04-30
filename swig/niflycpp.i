@@ -90,7 +90,13 @@ namespace std {
         blockView[blockId] = viewed;
       }
     }
-    return viewed != null ? (T)viewed.Clone() : null;
+    return viewed != null ? SafeClone<T>(viewed) : null;
+  }
+
+  // Clone any NiObject as its most derived type to avoid slicing in the SWIG layer
+  static public T SafeClone<T>(NiObject block) where T : NiObject
+  {
+      return (T)block.GetType().GetMethod("Clone").Invoke(block, null);
   }
 %}
 
