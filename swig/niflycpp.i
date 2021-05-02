@@ -69,36 +69,6 @@ namespace std {
 %enddef
 %standard_byref_param(int)
 %standard_byref_param(float)
- 
-%typemap(csclassmodifiers) nifly::NiHeader "public partial class";
-
-%typemap(cscode) nifly::NiHeader %{
-  private System.Collections.Generic.IDictionary<int, NiObject> blockView = new System.Collections.Generic.Dictionary<int, NiObject>();
-
-  // Produce a cloned view of the underlying blocks for safe editing and later persistence to a new NifFile
-  public T GetBlockById<T>(int blockId) where T : NiObject
-  {
-    T viewed = null;
-    if (blockView.ContainsKey(blockId)) {
-       viewed = blockView[blockId] as T;
-    }
-    else
-    {
-      viewed = GetBlockById(blockId) as T;
-      if (viewed != null)
-      {
-        blockView[blockId] = viewed;
-      }
-    }
-    return viewed != null ? SafeClone<T>(viewed) : null;
-  }
-
-  // Clone any NiObject as its most derived type to avoid slicing in the SWIG layer
-  static public T SafeClone<T>(NiObject block) where T : NiObject
-  {
-      return (T)block.GetType().GetMethod("Clone").Invoke(block, null);
-  }
-%}
 
 %typemap(csout, excode=SWIGEXCODE)
   nifly::NiObject *
@@ -109,40 +79,134 @@ namespace std {
 }
 
 %pragma(csharp) modulecode=%{
-    public class TextureFinder
+    public class BlockCache : System.IDisposable
     {
-        private NiHeader header;
-        private System.Collections.Generic.ISet<string>? textures;
+        public NiHeader Header { get; }
+        public System.Collections.Generic.IDictionary<int, NiObject> blockEdit = new System.Collections.Generic.Dictionary<int, NiObject>();
+
+        public BlockCache(NiHeader header)
+        {
+            Header = header;
+        }
+        public void Dispose()
+        {
+            ClearEditableBlocks();
+            Header.Dispose();
+        }
+
+        // Clone any NiObject as its most derived type to avoid slicing in the SWIG layer
+        static public T SafeClone<T>(NiObject block) where T : NiObject
+        {
+            return (T)block.GetType().GetMethod("Clone").Invoke(block, null);
+        }
+
+        public T TryGetEditableBlockById<T>(int blockId) where T : NiObject
+        {
+            T result = null;
+            NiObject edited = null;
+            if (blockEdit.TryGetValue(blockId, out edited))
+            {
+                result = edited as T;
+            }
+            return result;
+        }
+
+        // Produce a cloned view of an underlying block for safe editing and later persistence to a new NifFile
+        public T EditableBlockById<T>(int blockId) where T : NiObject
+        {
+            T result = TryGetEditableBlockById<T>(blockId);
+            if (result == null)
+            {
+                result = Header.GetBlockById(blockId) as T;
+                if (result != null)
+                {
+                result = SafeClone<T>(result);
+                if (result != null)
+                {
+                    blockEdit[blockId] = result;
+                }
+                }
+            }
+            return result;
+        }
+
+        public void ClearEditableBlocks()
+        {
+            foreach (var idBlock in blockEdit)
+            {
+                idBlock.Value.Dispose();
+            }
+            blockEdit.Clear();
+        }
+    }
+
+    public class TextureFinder : System.IDisposable
+    {
+        private BlockCache blockCache;
+        private System.Collections.Generic.ISet<string>? uniqueTextures;
+
         public TextureFinder(NiHeader target)
         {
-            header = target;
+            blockCache = new BlockCache(BlockCache.SafeClone<NiHeader>(target));
+        }
+
+        public void Dispose()
+        {
+            blockCache.Dispose();
         }
 
         public System.Collections.Generic.IEnumerable<string> UniqueTextures
         {
             get
             {
-                if (textures == null)
+                if (uniqueTextures == null)
                 {
-                    textures = new System.Collections.Generic.HashSet<string>();
-                    for (int blockId = 0; blockId < header.GetNumBlocks(); ++blockId)
+                    uniqueTextures = new System.Collections.Generic.HashSet<string>();
+                    for (int blockId = 0; blockId < blockCache.Header.GetNumBlocks(); ++blockId)
                     {
-                        BSShaderTextureSet textureSet = header.GetBlockById<BSShaderTextureSet>(blockId);
+                        BSShaderTextureSet textureSet = blockCache.EditableBlockById<BSShaderTextureSet>(blockId);
                         if (textureSet != null)
                         {
-                            foreach (NiString texture in textureSet.textures.items())
+                            using var textures = textureSet.textures;
+                            using var texturePaths = textures.items();
+                            foreach (NiString texture in texturePaths)
                             {
-                                if (texture != null && !System.String.IsNullOrEmpty(texture.get()))
+                                using (texture)
                                 {
-                                    textures.Add(texture.get());
+                                    if (texture != null)
+                                    {
+                                        string texturePath = texture.get();
+                                        if (System.String.IsNullOrEmpty(texturePath))
+                                        {
+                                            uniqueTextures.Add(texturePath);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
-                return textures;
+                return uniqueTextures;
             }
         }
+    }
+%}
+ 
+%typemap(csclassmodifiers) nifly::NifFile "public partial class";
+
+%typemap(cscode) nifly::NifFile %{
+    public static void CheckDestinationExists(string destDir)
+    {
+        if (!System.IO.Directory.Exists(destDir))
+        {
+            System.IO.Directory.CreateDirectory(destDir);
+        }
+    }
+
+    public int SafeSave(string fileName, NifSaveOptions options)
+    {
+        CheckDestinationExists(System.IO.Path.GetDirectoryName(fileName)!);
+        return Save(fileName, options);
     }
 %}
 
