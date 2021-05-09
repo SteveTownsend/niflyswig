@@ -14,11 +14,8 @@
     <RepositoryUrl>https://github.com/SteveTownsend/niflyswig.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Bethesda NIF C#</PackageTags>
-    <PackageReleaseNotes>Alpha test version for public consumption by the brave of heart.
-Add NiHeader.SafeClone() for C# because the SWIG generated code for C++ Clone().
-Clean up memory management to keep process size under control.
-Various QoL enhancements.</PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <PackageReleaseNotes>Fixes to facilitate AllGUD bow mesh transformation skin removal</PackageReleaseNotes>
+    <Version>1.2.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
