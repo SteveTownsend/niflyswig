@@ -12,7 +12,8 @@ namespace niflytest
         private static string dataFileLocation;
         private static TestContext myContext;
 
-        private enum FileCheck {
+        private enum FileCheck
+        {
             Exact = 0,
             MatchTruncated,
             NoMatch

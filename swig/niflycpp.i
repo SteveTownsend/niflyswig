@@ -82,7 +82,7 @@ namespace std {
     public class BlockCache : System.IDisposable
     {
         public NiHeader Header { get; }
-        public System.Collections.Generic.IDictionary<int, NiObject> blockEdit = new System.Collections.Generic.Dictionary<int, NiObject>();
+        public System.Collections.Generic.IDictionary<uint, NiObject> blockEdit = new System.Collections.Generic.Dictionary<uint, NiObject>();
 
         public BlockCache(NiHeader header)
         {
@@ -100,7 +100,7 @@ namespace std {
             return (T)block.GetType().GetMethod("Clone").Invoke(block, null);
         }
 
-        public T TryGetEditableBlockById<T>(int blockId) where T : NiObject
+        public T TryGetEditableBlockById<T>(uint blockId) where T : NiObject
         {
             T result = null;
             NiObject edited = null;
@@ -112,7 +112,7 @@ namespace std {
         }
 
         // Produce a cloned view of an underlying block for safe editing and later persistence to a new NifFile
-        public T EditableBlockById<T>(int blockId) where T : NiObject
+        public T EditableBlockById<T>(uint blockId) where T : NiObject
         {
             T result = TryGetEditableBlockById<T>(blockId);
             if (result == null)
@@ -162,7 +162,7 @@ namespace std {
                 if (uniqueTextures == null)
                 {
                     uniqueTextures = new System.Collections.Generic.HashSet<string>();
-                    for (int blockId = 0; blockId < blockCache.Header.GetNumBlocks(); ++blockId)
+                    for (uint blockId = 0; blockId < blockCache.Header.GetNumBlocks(); ++blockId)
                     {
                         BSShaderTextureSet textureSet = blockCache.EditableBlockById<BSShaderTextureSet>(blockId);
                         if (textureSet != null)
@@ -1155,7 +1155,6 @@ if (objType == bhkAabbPhantom.BlockName)
 
 // helpers for NiStringRef list retrieval
 %template(NiVectorBaseNiStringRef) nifly::NiVectorBase<nifly::NiStringRef, uint32_t>;
-%template(NiStringRefVectoru32) nifly::NiStringRefVector<uint32_t>;
 
 %template(setNiRef) std::set<nifly::NiRef*>;
 
@@ -1221,6 +1220,11 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(NiBlockRefNiTriStripsData) nifly::NiBlockRef<nifly::NiTriStripsData>;
 %template(NiBlockRefTextureRenderData) nifly::NiBlockRef<nifly::TextureRenderData>;
 
+%template(NiAnimationKeyGroupuchar) nifly::NiAnimationKeyGroup<unsigned char>;
+%template(NiAnimationKeyGroupfloat) nifly::NiAnimationKeyGroup<float>;
+%template(NiAnimationKeyGroupColor4) nifly::NiAnimationKeyGroup<nifly::Color4>;
+%template(NiAnimationKeyGroupVector3) nifly::NiAnimationKeyGroup<nifly::Vector3>;
+
 %template(NiVectorBasehalf) nifly::NiVectorBase<half_float::half, uint32_t>;
 %template(NiVectorhalf) nifly::NiVector<half_float::half, uint32_t>;
 %template(NiVectorBasefloat) nifly::NiVectorBase<float, uint32_t>;
@@ -1231,6 +1235,8 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(NiVectorshort) nifly::NiVector<short, uint32_t>;
 %template(NiVectorBaseuint) nifly::NiVectorBase<unsigned int, uint32_t>;
 %template(NiVectoruint) nifly::NiVector<unsigned int, uint32_t>;
+%template(NiVectorBasechar) nifly::NiVectorBase<char, uint32_t>;
+%template(NiVectorchar) nifly::NiVector<char, uint32_t>;
 %template(NiVectorBaseuchar) nifly::NiVectorBase<unsigned char, uint32_t>;
 %template(NiVectoruchar) nifly::NiVector<unsigned char, uint32_t>;
 %template(NiVectorBaseushort) nifly::NiVectorBase<unsigned short, uint32_t>;
@@ -1247,6 +1253,8 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(NiVectorBoundingSphere) nifly::NiVector<BoundingSphere, uint32_t>;
 %template(NiVectorBaseBSPackedGeomDataCombined) nifly::NiVectorBase<BSPackedGeomDataCombined, uint32_t>;
 %template(NiVectorBSPackedGeomDataCombined) nifly::NiVector<BSPackedGeomDataCombined, uint32_t>;
+%template(NiVectorBaseBSDismemberSkinInstancePartitionInfo) nifly::NiVectorBase<BSDismemberSkinInstance::PartitionInfo, uint32_t>;
+%template(NiVectorBSDismemberSkinInstancePartitionInfo) nifly::NiVector<BSDismemberSkinInstance::PartitionInfo, uint32_t>;
 %template(NiVectorBaseByteColor4) nifly::NiVectorBase<ByteColor4, uint32_t>;
 %template(NiVectorByteColor4) nifly::NiVector<ByteColor4, uint32_t>;
 %template(NiVectorBaseHavokFilter) nifly::NiVectorBase<HavokFilter, uint32_t>;
@@ -1255,10 +1263,12 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(NiVectorhkSubPartData) nifly::NiVector<hkSubPartData, unsigned short>;
 %template(NiVectorBaseLODRange) nifly::NiVectorBase<LODRange, uint32_t>;
 %template(NiVectorLODRange) nifly::NiVector<LODRange, uint32_t>;
+%template(NiVectorBaseMipMapInfo) nifly::NiVectorBase<MipMapInfo, uint32_t>;
+%template(NiVectorMipMapInfo) nifly::NiVector<MipMapInfo, uint32_t>;
 %template(NiVectorBaseNiString) nifly::NiVectorBase<NiString, uint32_t>;
 %template(NiStringVector) nifly::NiStringVector<uint32_t, 4>;
-%template(NiVectorBaseVector3) nifly::NiVectorBase<Vector3, uint32_t>;
-%template(NiVectorVector3) nifly::NiVector<Vector3, uint32_t>;
+%template(NiVectorBaseVector3) nifly::NiVectorBase<Vector3, unsigned short>;
+%template(NiVectorVector3) nifly::NiVector<Vector3, unsigned short>;
 %template(NiVectorBaseVector4) nifly::NiVectorBase<Vector4, uint32_t>;
 %template(NiVectorVector4) nifly::NiVector<Vector4, uint32_t>;
 
@@ -1304,6 +1314,7 @@ if (objType == bhkAabbPhantom.BlockName)
 
 %template(NiBlockRefShortArrayBSAnimNote) nifly::NiBlockRefShortArray<nifly::BSAnimNote>;
 %template(NiBlockRefShortArrayBSAnimNotes) nifly::NiBlockRefShortArray<nifly::BSAnimNotes>;
+%template(NiBlockRefShortArrayNiAVObject) nifly::NiBlockRefShortArray<nifly::NiAVObject>;
 
 %template() nifly::NiBlockPtr<nifly::bhkEntity>;
 %template() nifly::NiBlockPtr<nifly::BSMasterParticleSystem>;
@@ -1364,17 +1375,14 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(vectorhkTriangleNormalData) std::vector<nifly::hkTriangleNormalData>;
 %template(vectorInterpBlendItem) std::vector<nifly::InterpBlendItem>;
 %template(vectorkd_query_result) std::vector<nifly::kd_query_result>;
-%template(vectorKeyNiStringRef) std::vector<nifly::Key<nifly::NiStringRef>>;
-%template(vectorKeyQuaternion) std::vector<nifly::Key<nifly::Quaternion>>;
-%template(vectorKeyuchar) std::vector<nifly::Key<unsigned char>>;
 %template(vectorLODRange) std::vector<LODRange>;
 %template(vectorMatchGroup) std::vector<nifly::MatchGroup>;
-%template(vectorMaterialInfo) std::vector<nifly::MaterialInfo>;
 %template(vectorMatrix3) std::vector<nifly::Matrix3>;
 %template(vectorMatTransform) std::vector<nifly::MatTransform>;
 %template(vectorMipMapInfo) std::vector<nifly::MipMapInfo>;
 %template(vectorMorph) std::vector<nifly::Morph>;
 %template(vectorMorphWeight) std::vector<nifly::MorphWeight>;
+%template(vectorNiAnimationKeyQuaternion) std::vector<nifly::NiAnimationKey<nifly::Quaternion>>;
 %template(vectorNifSegmentInfo) std::vector<nifly::NifSegmentInfo>;
 %template(vectorNifSubSegmentInfo) std::vector<nifly::NifSubSegmentInfo>;
 %template(vectorNiNode) std::vector<nifly::NiNode*>;
@@ -1396,15 +1404,23 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(vectorVector4) std::vector<nifly::Vector4>;
 %template(vectorVertexWeight) std::vector<nifly::VertexWeight>;
 
-%template(Keyfloat) nifly::Key<float>;
-%template(KeyColor4) nifly::Key<Color4>;
-%template(KeyVector3) nifly::Key<nifly::Vector3>;
-%template(Keyuchar) nifly::Key<unsigned char>;
-%template(KeyNiStringRef) nifly::Key<nifly::NiStringRef>;
-%template(KeyQuaternion) nifly::Key<nifly::Quaternion>;
-
-%template(KeyGroupfloat) nifly::KeyGroup<float>;
-%template(KeyGroupColor4) nifly::KeyGroup<nifly::Color4>;
-%template(KeyGroupVector3) nifly::KeyGroup<nifly::Vector3>;
-%template(KeyGroupuchar) nifly::KeyGroup<unsigned char>;
-%template(KeyGroupNiStringRef) nifly::KeyGroup<nifly::NiStringRef>;
+%template(syncVectorAdditionalDataBlock) nifly::NiSyncVector<nifly::AdditionalDataBlock, uint32_t>;
+%template(syncVectorAdditionalDataInfo) nifly::NiSyncVector<nifly::AdditionalDataInfo, uint32_t>;
+%template(syncVectorAVObject) nifly::NiSyncVector<nifly::AVObject, uint32_t>;
+%template(syncVectorbhkCMSDBigTris) nifly::NiSyncVector<nifly::bhkCMSDBigTris, uint32_t>;
+%template(syncVectorbhkCMSDChunk) nifly::NiSyncVector<nifly::bhkCMSDChunk, uint32_t>;
+%template(syncVectorBoneLOD) nifly::NiSyncVector<nifly::BoneLOD, uint32_t>;
+%template(syncVectorBonePose) nifly::NiSyncVector<nifly::BonePose, uint32_t>;
+%template(syncVectorBSConnectPoint) nifly::NiSyncVector<nifly::BSConnectPoint, uint32_t>;
+%template(syncVectorBSPackedAdditionalDataBlock) nifly::NiSyncVector<nifly::BSPackedAdditionalDataBlock, uint32_t>;
+%template(syncVectorBSTreadTransform) nifly::NiSyncVector<nifly::BSTreadTransform, uint32_t>;
+%template(syncVectorConstraintData) nifly::NiSyncVector<nifly::ConstraintData, uint32_t>;
+%template(syncVectorControllerLink) nifly::NiSyncVector<nifly::ControllerLink, uint32_t>;
+%template(syncVectorDecalVectorBlock) nifly::NiSyncVector<nifly::DecalVectorBlock, unsigned short>;
+%template(syncVectorFurniturePosition) nifly::NiSyncVector<nifly::FurniturePosition, uint32_t>;
+%template(syncVectorMorphWeight) nifly::NiSyncVector<nifly::MorphWeight, uint32_t>;
+%template(syncVectorNiAnimationKeyuchar) nifly::NiSyncVector<nifly::NiAnimationKey<unsigned char>, uint32_t>;
+%template(syncVectorNiBlockRefArrayNiNode) nifly::NiSyncVector<nifly::NiBlockRefArray<nifly::NiNode>, uint32_t>;
+%template(syncVectorNiStringRef) nifly::NiSyncVector<nifly::NiStringRef, uint32_t>;
+%template(syncVectorNiTextKey) nifly::NiSyncVector<nifly::NiTextKey, uint32_t>;
+%template(syncVectorShaderTexDesc) nifly::NiSyncVector<nifly::ShaderTexDesc, uint32_t>;
