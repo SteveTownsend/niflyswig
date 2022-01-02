@@ -230,12 +230,12 @@ swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(Proje
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)swig\$(ProjectName)_wrap.cxx</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">echo Invoking SWIG...
 echo on
-swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
+E:\swigwin-4.0.2\swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
 @echo off</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)swig\$(ProjectName)_wrap.cxx</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo Invoking SWIG...
 echo on
-swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
+E:\swigwin-4.0.2\swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
 @echo off</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)swig\$(ProjectName)_wrap.cxx</Outputs>
     </CustomBuild>
