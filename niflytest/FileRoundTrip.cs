@@ -9,9 +9,9 @@ namespace niflytest
     [TestClass]
     public class FileRoundTrip
     {
+        public static string folderAssembly;
         private static string dataFileLocation;
         private static TestContext myContext;
-
         private enum FileCheck
         {
             Exact = 0,
@@ -66,17 +66,17 @@ namespace niflytest
         {
             // Executes once before the test run. (Optional)
             string pathAssembly = Assembly.GetExecutingAssembly().Location;
-            string folderAssembly = Path.GetDirectoryName(pathAssembly);
+            folderAssembly = Path.GetDirectoryName(pathAssembly);
             if (folderAssembly.EndsWith("\\") == false)
                 folderAssembly += "\\";
-            folderAssembly += "..\\..\\..\\data";
-            dataFileLocation = System.IO.Path.GetFullPath(folderAssembly);
+            folderAssembly += "..\\..\\..";
         }
         [ClassInitialize]
         public static void TestFixtureSetup(TestContext context)
         {
             // Executes once for the test class. (Optional)
             myContext = context;
+            dataFileLocation = System.IO.Path.GetFullPath(folderAssembly + "\\data");
         }
         [TestInitialize]
         public void Setup()
