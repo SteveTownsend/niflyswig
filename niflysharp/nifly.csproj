@@ -14,8 +14,8 @@
     <RepositoryUrl>https://github.com/SteveTownsend/niflyswig.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Bethesda NIF C#</PackageTags>
-    <PackageReleaseNotes>Fixes to facilitate AllGUD bow mesh transformation skin removal</PackageReleaseNotes>
-    <Version>1.2.9</Version>
+    <PackageReleaseNotes>Syncing to ousnius main latest</PackageReleaseNotes>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

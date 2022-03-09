@@ -1374,7 +1374,6 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(vectorhkTriangleData) std::vector<nifly::hkTriangleData>;
 %template(vectorhkTriangleNormalData) std::vector<nifly::hkTriangleNormalData>;
 %template(vectorInterpBlendItem) std::vector<nifly::InterpBlendItem>;
-%template(vectorkd_query_result) std::vector<nifly::kd_query_result>;
 %template(vectorLODRange) std::vector<LODRange>;
 %template(vectorMatchGroup) std::vector<nifly::MatchGroup>;
 %template(vectorMatrix3) std::vector<nifly::Matrix3>;
