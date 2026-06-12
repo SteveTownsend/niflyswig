@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>niflysharp</PackageId>
@@ -15,11 +15,11 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Bethesda NIF C#</PackageTags>
     <PackageReleaseNotes>Syncing to ousnius main latest</PackageReleaseNotes>
-    <Version>1.3.0</Version>
+    <Version>2.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\niflycpp.dll" Pack="true" PackagePath="lib\net5.0">
+    <None Include="..\niflycpp.dll" Pack="true" PackagePath="lib\net10.0">
       <Pack>True</Pack>
 	  <PackageCopyToOutput>true</PackageCopyToOutput>
 	</None>
