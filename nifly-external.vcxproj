@@ -29,22 +29,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -199,6 +199,7 @@ copy "$(OutDir)\$(ProjectName).dll" "$(SolutionDir)"
     <ClCompile Include="external\nifly\src\Factory.cpp" />
     <ClCompile Include="external\nifly\src\Geometry.cpp" />
     <ClCompile Include="external\nifly\src\NifFile.cpp" />
+    <ClCompile Include="external\nifly\src\NifUtil.cpp" />
     <ClCompile Include="external\nifly\src\Nodes.cpp" />
     <ClCompile Include="external\nifly\src\Object3d.cpp" />
     <ClCompile Include="external\nifly\src\Objects.cpp" />
@@ -230,12 +231,12 @@ swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(Proje
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)swig\$(ProjectName)_wrap.cxx</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">echo Invoking SWIG...
 echo on
-E:\swigwin-4.0.2\swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
+i:\swigwin-4.4.1\swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
 @echo off</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)swig\$(ProjectName)_wrap.cxx</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo Invoking SWIG...
 echo on
-E:\swigwin-4.0.2\swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
+i:\swigwin-4.4.1\swig.exe -outdir $(ProjectDir)niflysharp -namespace nifly -c++ -csharp -I$(ProjectDir)external\nifly\include "%(Identity)"
 @echo off</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)swig\$(ProjectName)_wrap.cxx</Outputs>
     </CustomBuild>

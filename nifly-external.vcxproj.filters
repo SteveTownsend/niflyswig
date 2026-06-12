@@ -113,6 +113,9 @@
     <ClCompile Include="swig\niflycpp_wrap.cxx">
       <Filter>swig</Filter>
     </ClCompile>
+    <ClCompile Include="external\nifly\src\NifUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="swig\niflycpp.i">

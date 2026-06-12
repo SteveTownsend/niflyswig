@@ -294,6 +294,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == bhkConvexVerticesShape.BlockName)
 {
     ret = new bhkConvexVerticesShape(cPtr, owner);
+} else if (objType == bhkCylinderShape.BlockName)
+{
+    ret = new bhkCylinderShape(cPtr, owner);
 } else if (objType == bhkHingeConstraint.BlockName)
 {
     ret = new bhkHingeConstraint(cPtr, owner);
@@ -378,6 +381,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == bhkTransformShape.BlockName)
 {
     ret = new bhkTransformShape(cPtr, owner);
+} else if (objType == BoneTranslations.BlockName)
+{
+    ret = new BoneTranslations(cPtr, owner);
 } else if (objType == BSAnimNote.BlockName)
 {
     ret = new BSAnimNote(cPtr, owner);
@@ -399,6 +405,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == BSClothExtraData.BlockName)
 {
     ret = new BSClothExtraData(cPtr, owner);
+} else if (objType == BSCollisionQueryProxyExtraData.BlockName)
+{
+    ret = new BSCollisionQueryProxyExtraData(cPtr, owner);
 } else if (objType == BSConnectPointChildren.BlockName)
 {
     ret = new BSConnectPointChildren(cPtr, owner);
@@ -417,6 +426,12 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == BSDismemberSkinInstance.BlockName)
 {
     ret = new BSDismemberSkinInstance(cPtr, owner);
+} else if (objType == BSDistantObjectExtraData.BlockName)
+{
+    ret = new BSDistantObjectExtraData(cPtr, owner);
+} else if (objType == BSDistantObjectInstancedNode.BlockName)
+{
+    ret = new BSDistantObjectInstancedNode(cPtr, owner);
 } else if (objType == BSDistantObjectLargeRefExtraData.BlockName)
 {
     ret = new BSDistantObjectLargeRefExtraData(cPtr, owner);
@@ -438,6 +453,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == BSEyeCenterExtraData.BlockName)
 {
     ret = new BSEyeCenterExtraData(cPtr, owner);
+} else if (objType == BSFaceGenNiNode.BlockName)
+{
+    ret = new BSFaceGenNiNode(cPtr, owner);
 } else if (objType == BSFadeNode.BlockName)
 {
     ret = new BSFadeNode(cPtr, owner);
@@ -450,6 +468,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == BSFurnitureMarkerNode.BlockName)
 {
     ret = new BSFurnitureMarkerNode(cPtr, owner);
+} else if (objType == BSGeometry.BlockName)
+{
+    ret = new BSGeometry(cPtr, owner);
 } else if (objType == BSInvMarker.BlockName)
 {
     ret = new BSInvMarker(cPtr, owner);
@@ -609,6 +630,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == BSWaterShaderProperty.BlockName)
 {
     ret = new BSWaterShaderProperty(cPtr, owner);
+} else if (objType == BSWeakReferenceNode.BlockName)
+{
+    ret = new BSWeakReferenceNode(cPtr, owner);
 } else if (objType == BSWindModifier.BlockName)
 {
     ret = new BSWindModifier(cPtr, owner);
@@ -732,6 +756,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == NiDitherProperty.BlockName)
 {
     ret = new NiDitherProperty(cPtr, owner);
+} else if (objType == NiExtraData.BlockName)
+{
+    ret = new NiExtraData(cPtr, owner);
 } else if (objType == NiFlipController.BlockName)
 {
     ret = new NiFlipController(cPtr, owner);
@@ -984,6 +1011,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == NiPSysRotationModifier.BlockName)
 {
     ret = new NiPSysRotationModifier(cPtr, owner);
+} else if (objType == NiPSysRotDampeningCtlr.BlockName)
+{
+    ret = new NiPSysRotDampeningCtlr(cPtr, owner);
 } else if (objType == NiPSysSpawnModifier.BlockName)
 {
     ret = new NiPSysSpawnModifier(cPtr, owner);
@@ -1128,6 +1158,9 @@ if (objType == bhkAabbPhantom.BlockName)
 } else if (objType == NiZBufferProperty.BlockName)
 {
     ret = new NiZBufferProperty(cPtr, owner);
+} else if (objType == SkinAttach.BlockName)
+{
+    ret = new SkinAttach(cPtr, owner);
 } else if (objType == SkyShaderProperty.BlockName)
 {
     ret = new SkyShaderProperty(cPtr, owner);
@@ -1374,7 +1407,6 @@ if (objType == bhkAabbPhantom.BlockName)
 %template(vectorhkTriangleData) std::vector<nifly::hkTriangleData>;
 %template(vectorhkTriangleNormalData) std::vector<nifly::hkTriangleNormalData>;
 %template(vectorInterpBlendItem) std::vector<nifly::InterpBlendItem>;
-%template(vectorkd_query_result) std::vector<nifly::kd_query_result>;
 %template(vectorLODRange) std::vector<LODRange>;
 %template(vectorMatchGroup) std::vector<nifly::MatchGroup>;
 %template(vectorMatrix3) std::vector<nifly::Matrix3>;
