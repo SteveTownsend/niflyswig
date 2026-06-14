@@ -89742,6 +89742,25 @@ SWIGEXPORT void SWIGSTDCALL CSharp_nifly_NifFile_CreateNamedBSFadeNode(void * ja
 }
 
 
+SWIGEXPORT void * SWIGSTDCALL CSharp_nifly_NifFile_FindBlockByNameNiNode(void * jarg1, const char * jarg2) {
+  void * jresult ;
+  nifly::NifFile *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  nifly::NiNode *result = 0 ;
+  
+  arg1 = (nifly::NifFile *)jarg1; 
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return 0;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  result = (nifly::NiNode *)((nifly::NifFile const *)arg1)->SWIGTEMPLATEDISAMBIGUATOR FindBlockByName< nifly::NiNode >((std::string const &)*arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_nifly_delete_NifFile(void * jarg1) {
   nifly::NifFile *arg1 = 0 ;
   
