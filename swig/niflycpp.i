@@ -241,6 +241,8 @@ namespace nifly {
   %template(StringExtraDataChildren) NifFile::GetChildren<NiStringExtraData>;
 
   %template(CreateNamedBSFadeNode) NifFile::CreateNamed<BSFadeNode>;
+
+  %template(FindBlockByNameNiNode) NifFile::FindBlockByName<NiNode>;
 };
 
 %pragma(csharp) imclasscode=%{
