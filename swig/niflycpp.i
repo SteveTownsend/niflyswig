@@ -243,6 +243,7 @@ namespace nifly {
   %template(CreateNamedBSFadeNode) NifFile::CreateNamed<BSFadeNode>;
 
   %template(FindBlockByNameNiNode) NifFile::FindBlockByName<NiNode>;
+  %template(FindBlockByNameNiAVObject) NifFile::FindBlockByName<NiAVObject>;
 };
 
 %pragma(csharp) imclasscode=%{
